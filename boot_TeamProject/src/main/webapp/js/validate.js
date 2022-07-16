@@ -6,7 +6,11 @@ jQuery(document).ready(function ($) {
 		
 		//Get the data from all the fields
 		var name = $('input[name=name]');
+		var id = $('input[name=id]');
+		var pw = $('input[name=pw]');
+		var pw2 = $('input[name=pw2]');
 		var email = $('input[name=email]');
+		var phone = $('input[name=phone]');
 		var regx = /^([a-z0-9_\-\.])+\@([a-z0-9_\-\.])+\.([a-z]{2,4})$/i;
 		var comment = $('textarea[name=comment]');
 		var returnError = false;
@@ -18,22 +22,37 @@ jQuery(document).ready(function ($) {
 			name.addClass('error');
 			returnError = true;
 		} else name.removeClass('error');
-		
+
+		if (id.val()=='') {
+			id.addClass('error');
+			returnError = true;
+		} else id.removeClass('error');
+
+		if (pw.val()=='') {
+			pw.addClass('error');
+			returnError = true;
+		} else pw.removeClass('error');
+
+		if (pw2.val()=='') {
+			pw2.addClass('error');
+			returnError = true;
+		} else pw2.removeClass('error');
+
 		if (email.val()=='') {
 			email.addClass('error');
 			returnError = true;
-		} else email.removeClass('error');		
+		} else email.removeClass('error');
+		
+		if (phone.val()=='') {
+			phone.addClass('error');
+			returnError = true;
+		} else phone.removeClass('error');
 		
 		if(!regx.test(email.val())){
           email.addClass('error');
           returnError = true;
 		} else email.removeClass('error');
 		
-		
-		if (comment.val()=='') {
-			comment.addClass('error');
-			returnError = true;
-		} else comment.removeClass('error');
 		
 		// Highlight all error fields, then quit.
 		if(returnError == true){
@@ -42,7 +61,8 @@ jQuery(document).ready(function ($) {
 		
 		//organize the data
 		
-		var data = 'name=' + name.val() + '&email=' + email.val() + '&comment='  + encodeURIComponent(comment.val());
+		var data = 'name=' + name.val() + '&id=' + id.val() + '&pw=' + pw.val() + '&pw2=' + pw2.val() + '&email=' + email.val() + '&phone=' + phone.val();
+		// + '&comment='  + encodeURIComponent(comment.val());
 
 		//disabled all the text fields
 		$('.text').attr('disabled','true');
