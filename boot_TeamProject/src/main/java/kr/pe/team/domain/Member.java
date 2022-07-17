@@ -16,10 +16,10 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Member {
 
+	private String name;
 	@Id
 	private String id;
 	private String password;
-	private String name;
 	private String email;
 	private String phone;
 }
