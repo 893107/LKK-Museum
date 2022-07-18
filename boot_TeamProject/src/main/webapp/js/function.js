@@ -5,7 +5,7 @@
 
 function idcheck(){
     console.log('함수 실행');
-    var id = $('input#idinfo').val();
+    let id = $('input#idinfo').val();
     console.log(id);
     if(id != ''){ //아이디 미입력시 버튼 클릭 검증
         $.ajax({
@@ -16,18 +16,20 @@ function idcheck(){
                 if(cnt == 0){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
                     document.getElementById('printmsg1').innerHTML = '사용 가능한 아이디 입니다.';
                     document.getElementById("idinfo").readOnly = true;
+                    document.getElementById("check1").value = 'Y';
                 } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
                     document.getElementById('printmsg1').innerHTML = '이미 사용중인 아이디 입니다.';
+                    document.getElementById("check1").value = 'N';
                 }
             },
             error:function(){
-                document.getElementById('printmsg1').innerHTML = '오류가 발생했습니다.'
+                document.getElementById('printmsg1').innerHTML = '오류가 발생했습니다.';
                 comsole.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-    
             }
         });
     } else {
-        document.getElementById('printmsg1').innerHTML = '아이디를 입력해주세요.'
+        document.getElementById('printmsg1').innerHTML = '아이디를 입력해주세요.';
+        document.getElementById("check1").value = 'N';
     }
 };
 
@@ -38,19 +40,20 @@ function pwcheck() {
     if(p1 != '' && p2 != '') {
         if( p1 != p2 ) {
             document.getElementById('printmsg2').innerHTML = '비밀번호가 일치하지 않습니다. 다시 확인해주세요.';
-           return false;
-        } else{
-             document.getElementById('printmsg2').innerHTML = '비밀번호가 일치합니다';
-             return true;
+            document.getElementById("check2").value = 'N';
+        } else {
+            document.getElementById('printmsg2').innerHTML = '비밀번호가 일치합니다';
+            document.getElementById("check2").value = 'Y';
           }
      } else {
-    document.getElementById('printmsg2').innerHTML = '비밀번호를 입력해주세요.'
+    document.getElementById('printmsg2').innerHTML = '비밀번호를 입력해주세요.';
+    document.getElementById("check2").value = 'N';
     }
 }
 
 function emailcheck(){
     console.log('함수 실행');
-    var email = $('input#emailinfo').val();
+    let email = $('input#emailinfo').val();
     console.log(email);
     if(email != ''){
         $.ajax({
@@ -60,17 +63,39 @@ function emailcheck(){
             success:function(cnt){ 
                 if(cnt == 0){ 
                     document.getElementById('printmsg3').innerHTML = '사용 가능한 이메일 입니다.';
+                    document.getElementById("check3").value = 'Y';
                 } else { 
                     document.getElementById('printmsg3').innerHTML = '이미 사용중인 이메일 입니다.';
+                    document.getElementById("check3").value = 'N';
                 }
             },
             error:function(){
                 document.getElementById('printmsg3').innerHTML = '오류가 발생했습니다.'
                 comsole.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-    
             }
         });
     } else {
-        document.getElementById('printmsg3').innerHTML = '이메일을 입력해주세요.'
+        document.getElementById('printmsg3').innerHTML = '이메일을 입력해주세요.';
+        document.getElementById("check3").value = 'N';
+    }
+};
+
+function datainfo(){
+    console.log('함수 실행');
+    let form = $("#contactform");
+   
+    if(document.getElementById("check1").value == 'Y'){
+        if(document.getElementById("check2").value == 'Y'){
+            if(document.getElementById("check3").value == 'Y'){
+                document.getElementById('printmsg4').innerHTML = '';
+                form.submit();
+            } else {
+                document.getElementById('printmsg4').innerHTML = '이메일 중복 체크를 실행해주세요.';
+            }
+        } else {
+            document.getElementById('printmsg4').innerHTML = '비밀번호 확인을 실행해주세요.';
+        }
+    } else {
+        document.getElementById('printmsg4').innerHTML = '아이디 중복 확인을 실행해주세요.';
     }
 };

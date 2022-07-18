@@ -67,9 +67,9 @@
 					Your message has been sent. Thank you!
 				</div>
 			</div>
-			<form method="post" action="/insert" id="contactform">
+			<form id="contactform" action="/insert" method="post">
 				<div class="form">
-					<input type="text" name="name" placeholder="이름(NAME) *" required>
+					<input type="text" id="nameinfo" name="name" placeholder="이름(NAME) *" required>
 					<input type="text" id="idinfo" name="id" placeholder="아이디(ID) *" required>
 					<input type="button" id="checkid" class="clearfix btn" value="아이디 중복 확인" onclick="idcheck()"><span id="printmsg1"></span>
 					<input type="password" id="pw1" name="password" placeholder="비밀번호(PASSWORD) *" maxlength="12" required>
@@ -77,8 +77,9 @@
 					<input type="button" id="checkpw" class="clearfix btn" value="비밀번호 확인" onclick="pwcheck()"><span id="printmsg2"></span>
 					<input type="text" id="emailinfo" name="email" placeholder="이메일 주소(E-MAIL ADDRESS) *" required>
 					<input type="button" id="checkemail" class="clearfix btn" value="이메일 중복 확인" onclick="emailcheck()"><span id="printmsg3"></span>
-					<input type="text" name="phone" placeholder="전화번호(PHONE NUMBER) *" required>
-					<input type="submit" id="finalbtn" class="clearfix btn" value="가입하기" required>
+					<input type="text" id="phoneinfo" name="phone" placeholder="전화번호(PHONE NUMBER) *" required>
+					<input type="button" id="finalbtn" class="clearfix btn" value="가입하기" onclick="datainfo()"><span id="printmsg4"></span>
+					<input type="hidden" id="check1" value=""><input type="hidden" id="check2" value=""><input type="hidden" id="check3" value="">
 				</div>
 			</form>
 		</div>
