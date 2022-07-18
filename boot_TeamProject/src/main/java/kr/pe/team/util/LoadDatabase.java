@@ -22,8 +22,8 @@ public class LoadDatabase {
 //		System.out.println(repository);
 
 		return args -> {
-			log.info("Preloading " + repository.save(new Member("유재석", "user1", "11", "1234@gmail.com","01012341234")));
-			log.info("Preloading " + repository.save(new Member( "백종원", "user2", "22", "5678@gmail.com","01000000000")));
+			log.info("Preloading " + repository.save(new Member("유재석", "user1", "11", "1234@gmail.com","01012341234","1")));
+			log.info("Preloading " + repository.save(new Member( "백종원", "user2", "22", "5678@gmail.com","01000000000","0")));
 		};
 	}
 }

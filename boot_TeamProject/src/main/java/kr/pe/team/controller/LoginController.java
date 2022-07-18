@@ -17,7 +17,7 @@ import kr.pe.team.domain.Member;
 import kr.pe.team.service.MemberService;
 
 @SessionAttributes("member")
-@RestController
+@Controller
 public class LoginController {
 	
 	@Autowired
@@ -74,7 +74,7 @@ public class LoginController {
 	public String insertuser(Member m) {
 		Member insertMember = memberService.insertMember(m);
 		
-		return "/login.jsp";
+		return "redirect:login.jsp";
 	}
 	
 
