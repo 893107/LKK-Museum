@@ -7,9 +7,9 @@
 <meta name="author" content="">
 <title>회원정보</title>
 <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link href="css/theme.css" rel="stylesheet">
+<link href="/css/theme.css" rel="stylesheet">
 <!-- Custom Fonts -->
 <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -48,29 +48,27 @@
 </div>
 <!-- /.container -->
 </nav>
-
 <header class="myheader">
 </header>
-
 <!-- Contact Section -->
 <section id="contact">
 <div class="container content-section">
-	<div class="row">
+	<div class="row col-lg-offset-2">
+		<h1>My Profile</h1>
 		<div class="col-lg-8 col-lg-offset-2">
-			<h1>My Profile</h1>
-			<form id="contactform" action="/insert" method="post">
+			<form id="mypageform" action="/insert" method="post">
 				<div class="form">
-					<input type="text" id="nameinfo" name="name" placeholder="이름(NAME) *" required>
-					<input type="text" id="idinfo" name="id" placeholder="아이디(ID) *" required>
-					<input type="button" id="checkid" class="clearfix btn" value="아이디 중복 확인" onclick="idcheck()"><span id="printmsg1"></span>
-					<input type="password" id="pw1" name="password" placeholder="비밀번호(PASSWORD) *" maxlength="12" required>
-					<input type="password" id="pw2" placeholder="비밀번호 확인(REPEAT PASSWORD) *" maxlength="12" required>
-					<input type="button" id="checkpw" class="clearfix btn" value="비밀번호 확인" onclick="pwcheck()"><span id="printmsg2"></span>
-					<input type="text" id="emailinfo" name="email" placeholder="이메일 주소(E-MAIL ADDRESS) *" required>
-					<input type="button" id="checkemail" class="clearfix btn" value="이메일 중복 확인" onclick="emailcheck()"><span id="printmsg3"></span>
-					<input type="text" id="phoneinfo" name="phone" placeholder="전화번호(PHONE NUMBER) *" required>
-					<input type="button" id="finalbtn" class="clearfix btn" value="가입하기" onclick="datainfo()"><span id="printmsg4"></span>
-					<input type="hidden" id="check1" value=""><input type="hidden" id="check2" value=""><input type="hidden" id="check3" value="">
+					이름 : <input type="text" id="nameinfo" name="name" placeholder="이름(NAME) *" readonly><br>
+					아이디 : <input type="text" id="idinfo" name="id" placeholder="아이디(ID) *" readonly value="${principal.member.id}"><br>
+					비밀번호 : <input type="password" id="pw1" name="password" placeholder="비밀번호(PASSWORD) *" maxlength="12" readonly>
+					<input type="hidden" id="pw2" placeholder="비밀번호 확인(REPEAT PASSWORD) *" maxlength="12" required>
+					<input type="hidden" id="checkpw" class="clearfix btn" value="비밀번호 확인" onclick="pwcheck()"><span id="printmsg2"></span><br>
+					이메일 : <input type="text" id="emailinfo" name="email" placeholder="이메일 주소(E-MAIL ADDRESS) *" readonly>
+					<input type="hidden" id="checkemail" class="clearfix btn" value="이메일 중복 확인" onclick="emailcheck()"><span id="printmsg3"></span><br>
+					전화번호 : <input type="text" id="phoneinfo" name="phone" placeholder="전화번호(PHONE NUMBER) *" readonly>
+					<input type="button" id="infocheck" class="clearfix btn" value="내 정보 변경하기" onclick="update()">
+					<input type="hidden" id="updatedata" class="clearfix btn" value="확인" onclick="dataupdate()"><span id="printmsg4"></span>
+					<input type="hidden" id="check2" value=""><input type="hidden" id="check3" value="">
 				</div>
 			</form>
 		</div>
@@ -82,13 +80,10 @@
 <div class="container text-center">
 	<p class="credits">
 		Go to <i class="fa fa-love"></i><a href="https://github.com/893107/Full-stack-Project.git">GitHub</a>
-
 	</p>
 </div>
 </footer>
-
 <script type="text/javascript">
-    
 </script>
 	
 <!-- jQuery -->

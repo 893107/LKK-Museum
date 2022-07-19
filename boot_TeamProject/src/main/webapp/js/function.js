@@ -108,7 +108,9 @@ function update(){
     document.getElementById('checkemail').type = 'text'
     document.getElementById('updatedata').type = 'button'
 
-    document.getElementById('pw2').readOnly = 'false'
+    document.getElementById('pw1').readOnly = false
+    document.getElementById('emailinfo').readOnly = false
+    document.getElementById('phoneinfo').readOnly = false
 }
 
 function dataupdate(){
