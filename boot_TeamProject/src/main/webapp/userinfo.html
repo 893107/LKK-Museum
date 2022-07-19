@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +31,7 @@
 	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 		<ul class="nav navbar-nav">
 			<li>
-			<a href="index.html">메인화면</a>
+			<a sec:authorize="isAuthenticated()" th:href="@{/}">메인화면</a>
 			</li>
 			<li>
 			<a href="auction.html">경매장</a>
@@ -50,32 +50,38 @@
 </nav>
 
 <header class="myheader">
-</header>
+</header>#mypageform input#updatedata {
+	width:auto;
+	border:2px solid;
+	padding:10px 20px;
+	display:inline-block;
+}
+#mypageform input#infocheck {
+	width:auto;
+	border:2px solid;
+	padding:10px 20px;
+	display:inline-block;
+}
 
 <!-- Contact Section -->
 <section id="contact">
 <div class="container content-section">
-	<div class="row">
+	<div class="row col-lg-offset-2">
+		<h1>My Profile</h1>
 		<div class="col-lg-8 col-lg-offset-2">
-			<div class="done">
-				<div class="alert alert-success">
-					<button type="button" class="close" data-dismiss="alert">×</button>
-					Your message has been sent. Thank you!
-				</div>
-			</div>
-			<form id="contactform" action="/insert" method="post">
+			<form id="mypageform" action="/insert" method="post">
 				<div class="form">
-					<input type="text" id="nameinfo" name="name" placeholder="이름(NAME) *" required>
-					<input type="text" id="idinfo" name="id" placeholder="아이디(ID) *" required>
-					<input type="button" id="checkid" class="clearfix btn" value="아이디 중복 확인" onclick="idcheck()"><span id="printmsg1"></span>
-					<input type="password" id="pw1" name="password" placeholder="비밀번호(PASSWORD) *" maxlength="12" required>
-					<input type="password" id="pw2" placeholder="비밀번호 확인(REPEAT PASSWORD) *" maxlength="12" required>
-					<input type="button" id="checkpw" class="clearfix btn" value="비밀번호 확인" onclick="pwcheck()"><span id="printmsg2"></span>
-					<input type="text" id="emailinfo" name="email" placeholder="이메일 주소(E-MAIL ADDRESS) *" required>
-					<input type="button" id="checkemail" class="clearfix btn" value="이메일 중복 확인" onclick="emailcheck()"><span id="printmsg3"></span>
-					<input type="text" id="phoneinfo" name="phone" placeholder="전화번호(PHONE NUMBER) *" required>
-					<input type="button" id="finalbtn" class="clearfix btn" value="가입하기" onclick="datainfo()"><span id="printmsg4"></span>
-					<input type="hidden" id="check1" value=""><input type="hidden" id="check2" value=""><input type="hidden" id="check3" value="">
+					이름 : <input type="text" id="nameinfo" name="name" placeholder="이름(NAME) *" readonly><br>
+					아이디 : <input type="text" id="idinfo" name="id" placeholder="아이디(ID) *" readonly value="${principal.member.username}"><br>
+					비밀번호 : <input type="password" id="pw1" name="password" placeholder="비밀번호(PASSWORD) *" maxlength="12" readonly>
+					<input type="hidden" id="pw2" placeholder="비밀번호 확인(REPEAT PASSWORD) *" maxlength="12" required>
+					<input type="hidden" id="checkpw" class="clearfix btn" value="비밀번호 확인" onclick="pwcheck()"><span id="printmsg2"></span><br>
+					이메일 : <input type="text" id="emailinfo" name="email" placeholder="이메일 주소(E-MAIL ADDRESS) *" readonly>
+					<input type="hidden" id="checkemail" class="clearfix btn" value="이메일 중복 확인" onclick="emailcheck()"><span id="printmsg3"></span><br>
+					전화번호 : <input type="text" id="phoneinfo" name="phone" placeholder="전화번호(PHONE NUMBER) *" readonly>
+					<input type="button" id="infocheck" class="clearfix btn" value="내 정보 변경하기" onclick="update()">
+					<input type="hidden" id="updatedata" class="clearfix btn" value="확인" onclick="dataupdate()"><span id="printmsg4"></span>
+					<input type="hidden" id="check2" value=""><input type="hidden" id="check3" value="">
 				</div>
 			</form>
 		</div>
@@ -100,12 +106,12 @@
 <script src="js/jquery.js"></script>
 <script src="js/function.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <!-- Plugin JavaScript -->
-<script src="js/jquery.easing.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
 <!-- Contact JavaScript -->
-<script src="js/validate.js"></script>
+<script src="/js/validate.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="js/theme.js"></script>
+<script src="/js/theme.js"></script>
 </body>
 </html>
