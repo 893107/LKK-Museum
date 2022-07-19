@@ -5,17 +5,17 @@
 
 function idcheck(){
     console.log('함수 실행');
-    let id = $('input#idinfo').val();
-    console.log(id);
-    if(id != ''){ //아이디 미입력시 버튼 클릭 검증
+    let account = $('input#accountinfo').val();
+    console.log(account);
+    if(account != ''){ //아이디 미입력시 버튼 클릭 검증
         $.ajax({
             url:'/idCheck', 
-            type:'POST', 
-            data: {id: id},
+            type:'GET', 
+            data: {account: account},
             success:function(cnt){ 
                 if(cnt == 0){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
                     document.getElementById('printmsg1').innerHTML = '사용 가능한 아이디 입니다.';
-                    document.getElementById("idinfo").readOnly = true;
+                    document.getElementById("accountinfo").readOnly = true;
                     document.getElementById("check1").value = 'Y';
                 } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
                     document.getElementById('printmsg1').innerHTML = '이미 사용중인 아이디 입니다.';
@@ -58,7 +58,7 @@ function emailcheck(){
     if(email != ''){
         $.ajax({
             url:'/emailCheck', 
-            type:'POST', 
+            type:'GET', 
             data: {email: email},
             success:function(cnt){ 
                 if(cnt == 0){ 
@@ -121,16 +121,30 @@ $(document).mouseup(function (e){
 });
 
 //카운트다운 타이머
-$(document).ready(function () {
-    var myDate = new Date('2022/07/22 23:59:59');
-    myDate.setDate(myDate.getDate());
+function makeTimer() {
 
-    $("#countdown").countdown(myDate, function (event) {
-        $(this).html(
-            event.strftime(
-                '<div class="timer-wrapper"><div class="time">%D</div><span class="text">days</span></div><div class="timer-wrapper"><div class="time">%H</div><span class="text">hrs</span></div><div class="timer-wrapper"><div class="time">%M</div><span class="text">mins</span></div><div class="timer-wrapper"><div class="time">%S</div><span class="text">sec</span></div>'
-            )
-        );
-    });
+    var endTime = new Date("July 22, 2022 18:00:00 PDT");			
+    var endTime = (Date.parse(endTime)) / 1000;
 
-});
+    var now = new Date();
+    var now = (Date.parse(now) / 1000);
+
+    var timeLeft = endTime - now;
+
+    var days = Math.floor(timeLeft / 86400); 
+    var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+    var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+    var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+    if (hours < "10") { hours = "0" + hours; }
+    if (minutes < "10") { minutes = "0" + minutes; }
+    if (seconds < "10") { seconds = "0" + seconds; }
+
+    $("#days").html(days + "<span>Days</span>");
+    $("#hours").html(hours + "<span>Hours</span>");
+    $("#minutes").html(minutes + "<span>Minutes</span>");
+    $("#seconds").html(seconds + "<span>Seconds</span>");		
+
+}
+
+setInterval(function() { makeTimer(); }, 1000);
