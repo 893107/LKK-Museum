@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.demo.dto.MailDto;
 import com.example.demo.dto.MemberTO;
 import com.example.demo.entity.Member;
+import com.example.demo.service.MailService;
 import com.example.demo.service.MemberService;
 
 @Controller
@@ -35,6 +37,23 @@ public class HomeController {
     public String signupView() {
         return "pages/signup";
     }
+    
+    
+    @Autowired
+    private MailService mailService;
+
+    @GetMapping("/mail")
+    public String dispMail() {
+        return "pages/mail";
+    }
+
+    @GetMapping("/mailsend")
+    public String execMail(@RequestParam("email") String email) {
+        System.out.println(email);
+    	mailService.mailSend(email);
+        return "pages/home";
+    }
+    
 
     @PostMapping("/signup")
     public String signup(MemberTO memberTO) {
