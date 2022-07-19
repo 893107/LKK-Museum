@@ -68,7 +68,7 @@ public class HomeController {
     @PreAuthorize("hasRole('ROLE_MEMBER')")
     @GetMapping("/member/info")
     public String userInfoView() {
-        return "pages/user_info";
+        return "pages/userinfo";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")

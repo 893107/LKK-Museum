@@ -131,9 +131,9 @@ input::placeholder {
 			<div
 				class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="index.html">메인화면</a></li>
-					<li><a href="auction.html">경매장</a></li>
-					<li><a href="page-sample.html">굿즈샵</a></li>
+					<li><a sec:authorize="isAnonymous()" th:href="@{/}">메인화면</a></li>
+					<li><a sec:authorize="isAuthenticated()" href="auction.html">경매장</a></li>
+					<li><a sec:authorize="isAuthenticated()" href="page-sample.html">굿즈샵</a></li>
 					<li><a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
 					</li>
 				</ul>
