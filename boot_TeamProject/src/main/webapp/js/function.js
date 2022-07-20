@@ -84,11 +84,23 @@ function emailcheck(){
 function datainfo(){
     console.log('함수 실행');
     let form = $("#contactform");
-   
+    let email = $('input#emailinfo').val();
+    
     if(document.getElementById("check1").value == 'Y'){
         if(document.getElementById("check2").value == 'Y'){
             if(document.getElementById("check3").value == 'Y'){
                 document.getElementById('printmsg4').innerHTML = '';
+                $.ajax({
+                    url:'/mailsend', 
+                    type:'GET', 
+                    data: {email: email},
+                    success:function(){ 
+                    	alter("succcess");
+                    },
+                    error:function(){
+                        alter("Error");
+                    }
+                });                     
                 form.submit();
             } else {
                 document.getElementById('printmsg4').innerHTML = '이메일 중복 체크를 실행해주세요.';

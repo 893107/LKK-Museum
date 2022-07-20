@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +59,7 @@
 			<form id="mypageform" action="/insert" method="post">
 				<div class="form">
 					이름 : <input type="text" id="nameinfo" name="name" placeholder="이름(NAME) *" readonly><br>
-					아이디 : <input type="text" id="idinfo" name="id" placeholder="아이디(ID) *" readonly value="${principal.member.id}"><br>
+					아이디 : <input type="text" id="idinfo" name="id" placeholder="아이디(ID) *" th:readonly="readonly" th:value="${#authentication.principal.username}"><br>
 					비밀번호 : <input type="password" id="pw1" name="password" placeholder="비밀번호(PASSWORD) *" maxlength="12" readonly>
 					<input type="hidden" id="pw2" placeholder="비밀번호 확인(REPEAT PASSWORD) *" maxlength="12" required>
 					<input type="hidden" id="checkpw" class="clearfix btn" value="비밀번호 확인" onclick="pwcheck()"><span id="printmsg2"></span><br>

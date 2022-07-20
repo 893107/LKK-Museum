@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MailService {
     private JavaMailSender mailSender;
-    private static final String FROM_ADDRESS = "kml1763@naver.com";
+    private static final String FROM_ADDRESS = "wlng12@naver.com";
 
     public void mailSend(String email) {
         try {
