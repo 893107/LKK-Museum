@@ -377,15 +377,24 @@ p.lead {
 img {
 	max-width:100%;
 }
+.gallery {
+	display: grid;
+	grid-auto-flow: row dense;
+	/* grid-template-columns: 1fr 1fr 1fr; */
+}
 .gallery ul {
 	padding:0;
 	margin:0;
+	gap: 30px;
+	row-gap: 20px;
 }
 .gallery img {
-	max-width:100%;
+	max-width:400px;
 	height:auto;
 	padding:0;
 	margin:0;
+	object-fit: cover;
+	
 }
 .gallery ul li {
 	margin:0;
@@ -424,7 +433,7 @@ img {
 }
 .gallery ul li a:after {
 	position:absolute;
-	width:100%;
+	width: 400px;
 	top:0;
 	bottom:0;
 	background:rgba(0,0,0,0.3);
