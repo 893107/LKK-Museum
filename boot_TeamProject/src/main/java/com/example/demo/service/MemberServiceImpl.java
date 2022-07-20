@@ -74,8 +74,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
 	@Override
-	public Member getMember(MemberTO memberTO) {
-		Optional<Member> findMember = memberDao.findByAccount(memberTO.getAccount());
+	public Member getMember(String account) {
+		Optional<Member> findMember = memberDao.findByAccount(account);
 		if (findMember.isPresent()) {
 			return findMember.get();
 		} else {

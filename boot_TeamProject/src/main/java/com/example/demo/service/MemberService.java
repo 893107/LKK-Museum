@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface MemberService extends UserDetailsService {
     Integer save(MemberTO memberTO);
-    Member getMember(MemberTO memberTO);
+    Member getMember(String account);
     
     int idCheck(String account);
 	int emailCheck(String email);

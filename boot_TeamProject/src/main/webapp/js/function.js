@@ -60,7 +60,7 @@ function emailcheck(){
         $.ajax({
             url:'/emailCheck', 
             type:'GET', 
-            data: {email: email},
+            data: {email: email}, // 막상 검색하려니까 난해함 --> 뭘 어떻게 검색해야할지 모르겠음
             success:function(cnt){ 
                 if(cnt == 0){ 
                     document.getElementById('printmsg3').innerHTML = '사용 가능한 이메일 입니다.';
@@ -115,7 +115,9 @@ function datainfo(){
 
 //회원 정보 수정
 function update(){
-    document.getElementById('pw2').type = 'password'
+    
+	
+	document.getElementById('pw2').type = 'password'
     document.getElementById('checkpw').type = 'button'
     document.getElementById('checkemail').type = 'text'
     document.getElementById('updatedata').type = 'button'
@@ -130,12 +132,10 @@ function dataupdate(){
     let form = $("#mypageform");
    
     if(document.getElementById("check2").value == 'Y'){
-          if(document.getElementById("check3").value == 'Y'){
-            document.getElementById('printmsg4').innerHTML = '';
-            form.submit();
-         } else {
-            document.getElementById('printmsg4').innerHTML = '이메일 중복 체크를 실행해주세요.';
-        }
+         document.getElementById('printmsg4').innerHTML = '';
+                  
+         form.submit(); 
+          
     } else {
          document.getElementById('printmsg4').innerHTML = '비밀번호 확인을 실행해주세요.';
     }

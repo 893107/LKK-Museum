@@ -33,6 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/lib/**" , "/fonts/**" ,"/font-awesome/**");
         //antMatchers 누구든 접근 가능한 설정
+        
     }
 
     @Override
