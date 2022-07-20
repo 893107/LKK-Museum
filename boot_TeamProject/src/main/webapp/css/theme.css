@@ -151,6 +151,10 @@ a:hover,a:focus {
 	text-align:center;
 	color:#fff;
 	background-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,0.46),rgba(0,0,0,0.88)),url('https://mdl.artvee.com/sftb/517096ld.jpg');
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	background-size:cover;
+	-o-background-size:cover;
 }
 
 .auction-header {
@@ -466,11 +470,15 @@ section {
 	-o-transition:border linear 0.2s,box-shadow linear 0.2s;
 	transition:border linear 0.2s,box-shadow linear 0.2s;	
 }
+/* 회원정보 수정 */
+#mypageform{
+	width:80%;
+}
 
 #mypageform input{
 	border:0px;
 	border-bottom:2px solid #333;
-	width:80%;
+	width:50%;
 	background-color:transparent;
 	padding:20px 0px;
 	/* text-transform:uppercase; */

@@ -6,13 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>미술관 - 프리미엄 온라인 경매</title>
+<title>프리미엄 온라인 경매</title>
 <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link href="css/theme.css" rel="stylesheet">
+<link href="/css/theme.css" rel="stylesheet">
 <!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 </head>
@@ -32,21 +32,21 @@
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
 		<i class="fa fa-bars"></i>
 		</button>
-		<a class="navbar-brand page-scroll" href="index.html">
-		미술관
+		<a class="navbar-brand page-scroll">
+		Weekly Auction
 		</a>
 	</div>
 	<!-- header 메뉴 -->
 	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 		<ul class="nav navbar-nav">
 			<li>
-			<a href="index.html">메인화면</a>
+			<a sec:authorize="isAuthenticated()" th:href="@{/}">Gallery</a>
 			</li>
 			<li>
-			<a href="auction.html">경매장</a>
+			<a sec:authorize="isAuthenticated()" th:href="@{/member/auction}">Auction</a>
 			</li>
 			<li>
-			<a href="page-sample.html">굿즈샵</a>
+			<a sec:authorize="isAuthenticated()" th:href="@{/member/store}">Store</a>
 			</li>
 			<li>
 			<a href="login.jsp">Login</a>
@@ -107,7 +107,7 @@
 			<p>
 				<a href="#" class="btnghost"><i class="fa fa-envelope"></i> 전체 칼럼 받아보기</a> 
 				<i style="font-size:12px;margin-right:3px;"></i> 
-				<a href="index.html#portfolio" class="btnghost"><i class="fa fa-camera"></i> 경매 참여하기</a>
+				<a class="btnghost" onclick="showlayer()"><i class="fa fa-camera"></i> 경매 참여하기</a>
 			</p>
 		</div>
 	</div>
@@ -123,8 +123,19 @@
 		</p>
 	</div>
 </div>
-
 </section>
+
+<!-- 레이어 팝업 -->
+<div>
+	<div id="layer_bg">
+		<div id="popup">
+			<h2>
+				제목 <label for="layerPopup">X</label>
+			</h2>
+			<input type="text">
+		</div>
+	</div>
+</div>
 
 <!-- Footer -->
 <footer>
@@ -136,13 +147,13 @@
 </div>
 </footer>
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
-<script src="js/function.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/function.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <!-- Plugin JavaScript -->
-<script src="js/jquery.easing.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="js/theme.js"></script>
+<script src="/js/theme.js"></script>
 </body>
 </html>

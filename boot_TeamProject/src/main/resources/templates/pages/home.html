@@ -47,8 +47,8 @@
 				class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				<ul class="nav navbar-nav">
 					<li><a sec:authorize="isAuthenticated()" th:href="@{/}">메인화면</a></li>
-					<li><a sec:authorize="isAuthenticated()" href="auction.html">경매장</a></li>
-					<li><a sec:authorize="isAuthenticated()" href="page-sample.html">굿즈샵</a></li>
+					<li><a sec:authorize="isAuthenticated()" th:href="@{/member/auction}">경매장</a></li>
+					<li><a sec:authorize="isAuthenticated()" th:href="@{/member/store}">굿즈샵</a></li>
 					<li><a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a></li>
 					<li><a th:href="@{/member/info}">MY INFO</a></li>
 					<li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a></li>
@@ -183,18 +183,12 @@
 		</div>
 	</footer>
 
-	<!-- js연결 -->
-	<script src="js/jquery.js"></script>
-	<script src="js/function.js"></script>
-
-	<script src="js/bootstrap.min.js"></script>
-
-	<script src="js/jquery.easing.min.js"></script>
-
-	<script src="js/theme.js"></script>
-
-
-
-
+<!-- js연결 -->
+<script src="js/jquery.js"></script>
+<script src="js/mouseover.js"></script>
+<script src="js/function.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/theme.js"></script>
 </body>
 </html>

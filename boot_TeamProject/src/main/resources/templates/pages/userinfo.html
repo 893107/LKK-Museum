@@ -40,7 +40,7 @@
 			<a href="auction.html">경매장</a>
 			</li>
 			<li>
-			<a href="page-sample.html">굿즈샵</a>
+			<a href="store.html">굿즈샵</a>
 			</li>
 			<li>
 			<a href="login.jsp">Login</a>
@@ -55,23 +55,15 @@
 </header>
 <!-- Contact Section -->
 <section id="contact">
-
-
-
 <div class="container content-section">
 	<div class="row col-lg-offset-2">
-	
 		<h1>My Profile</h1>
 		<div class="col-lg-8 col-lg-offset-2">
-		
-		
-			<form role="form" id="mypageform" th:action="@{/member/update}" method="Post">
+			<form id="mypageform" action="/update" method="Post">
 				<div class="form">
-				
-					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					이름 : <input type="text" id="nameinfo" name="name" placeholder="이름(NAME) *" readonly th:value="${memberinfo.getName}"><br>
-					아이디 : <input type="text" id="idinfo" name="account" placeholder="아이디(ID) *" th:readonly="readonly" th:value="${#authentication.principal.username}"><br>
-					비밀번호 : <input type="password" id="pw1" name="password" placeholder="비밀번호(PASSWORD) *" maxlength="12" >
+					아이디 : <input type="text" id="idinfo" name="id" placeholder="아이디(ID) *" th:readonly="readonly" th:value="${#authentication.principal.username}"><br>
+					비밀번호 : <input type="password" id="pw1" name="password" placeholder="비밀번호(PASSWORD) *" maxlength="12" readonly>
 					<input type="hidden" id="pw2" placeholder="비밀번호 확인(REPEAT PASSWORD) *" maxlength="12" required>
 					<input type="hidden" id="checkpw" class="clearfix btn" value="비밀번호 확인" onclick="pwcheck()"><span id="printmsg2"></span><br>
 					이메일 : <input type="text" id="emailinfo" name="email" placeholder="이메일 주소(E-MAIL ADDRESS) *" readonly th:value="${memberinfo.getEmail}">

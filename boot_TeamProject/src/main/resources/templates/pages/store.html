@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>온라인 굿즈 스토어</title>
+<!-- Bootstrap Core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/css/theme.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+	body {
+	 margin: 0;
+   } 
+   
+   #imgcontent {
+	 width: 80%;
+	 margin: auto;
+	 overflow: hidden;
+   }
+   .images {
+	 width: 100%;
+	 height: auto;
+   }
+   .images a {
+	 width: 300px;
+	 height: 300px;
+   }
+   .images a img {
+	 width: 100%;
+     vertical-align: top;
+	 object-fit: contain;
+   }
+	
+	@media (min-width: 640px) {
+	 #imgcontent {
+	   display: flex;
+	   grid-template-columns: 1fr 1fr 1fr;
+	   gap: 30px;
+	   grid-auto-flow: row;
+	 }
+	 .imageFlex1 {
+	   display: flex;
+	   flex-direction: column;
+	   row-gap: 60px;
+	   place-items: center;
+	 }
+	 .imageFlex2 {
+	   display: flex;
+	   flex-direction: column;
+	   row-gap: 60px;
+	   place-items: center;
+	 }
+	 .imageFlex3 {
+	   display: flex;
+	   flex-direction: column;
+	   row-gap: 60px;
+	   place-items: center;
+	 }
+   }  
+.myheader {
+	width:100%;
+	height:90px;
+	text-align:center;
+	color:#fff;
+	background-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,0.46),rgba(0,0,0,0.88)),url('https://mdl.artvee.com/sftb/517096ld.jpg');
+}
+/* .images a:before{
+	background:rgba(0,0,0,0.3);
+}
+#imgcontent a:before {
+	position:absolute;
+	width:32px;
+	height:32px;
+	top:40%;
+	left:50%;
+	margin:-14px 0 0 -16px;
+	background: url(data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2017.1.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%0A%3Csvg%20version%3D%221.1%22%0A%09%20id%3D%22svg2%22%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Asodipodi%3D%22http%3A//sodipodi.sourceforge.net/DTD/sodipodi-0.dtd%22%20xmlns%3Ainkscape%3D%22http%3A//www.inkscape.org/namespaces/inkscape%22%20inkscape%3Aversion%3D%220.48.4%20r9939%22%20sodipodi%3Adocname%3D%22icon-fullscreen.svg%22%0A%09%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20960%20560%22%0A%09%20enable-background%3D%22new%200%200%20960%20560%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Csodipodi%3Anamedview%20%20borderopacity%3D%221%22%20pagecolor%3D%22%23ffffff%22%20bordercolor%3D%22%23666666%22%20objecttolerance%3D%2210%22%20gridtolerance%3D%2210%22%20guidetolerance%3D%2210%22%20showgrid%3D%22false%22%20fit-margin-top%3D%220%22%20fit-margin-left%3D%220%22%20inkscape%3Azoom%3D%227.375%22%20inkscape%3Acx%3D%22-5.1525424%22%20inkscape%3Acy%3D%2216%22%20id%3D%22namedview11%22%20inkscape%3Awindow-x%3D%22-8%22%20inkscape%3Awindow-y%3D%22-8%22%20fit-margin-right%3D%220%22%20inkscape%3Apageopacity%3D%220%22%20fit-margin-bottom%3D%220%22%20inkscape%3Awindow-width%3D%221366%22%20inkscape%3Awindow-height%3D%22706%22%20inkscape%3Awindow-maximized%3D%221%22%20inkscape%3Apageshadow%3D%222%22%20inkscape%3Acurrent-layer%3D%22svg2%22%3E%0A%09%3C/sodipodi%3Anamedview%3E%0A%3Cg%3E%0A%09%3Crect%20x%3D%22220%22%20y%3D%22260%22%20fill%3D%22%23FFFFFF%22%20width%3D%22536%22%20height%3D%2224%22/%3E%0A%3C/g%3E%0A%3Cg%3E%0A%09%3Crect%20x%3D%22476%22%20y%3D%224%22%20fill%3D%22%23FFFFFF%22%20width%3D%2224%22%20height%3D%22556%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A) no-repeat;
+	content:"";
+	opacity:0;
+	z-index:1;
+	-webkit-transition:all 0.3s linear;
+	-moz-transition:all 0.3s linear;
+	transition:all 0.3s linear;
+}
+#imgcontent a:hover:before {
+	top:50%;
+	opacity:1;
+}
+#imgcontent :after {
+	position:absolute;
+	width: 100%; height:100%;
+	top:0;
+	bottom:0;
+	background:rgba(0,0,0,0.3);
+	content:"";
+	opacity:0;
+	-webkit-transition:all 0.3s linear;
+	-moz-transition:all 0.3s linear;
+	transition:all 0.3s linear;
+}
+#imgcontent a:hover:after {
+	opacity:1;
+}
+#imgcontent :after {
+    position: absolute;
+    content: '';
+	width: 0%; height:0%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.3);
+    opacity: 0;
+    -webkit-transition:all 0.3s linear;
+	-moz-transition:all 0.3s linear;
+	transition:all 0.3s linear;
+}
+#imgcontent a:hover:after {
+    opacity: 1;
+} */
+</style>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+<div class="container">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+		<i class="fa fa-bars"></i>
+		</button>
+		<a class="navbar-brand page-scroll" href="store.html">
+		Online Store </a>
+	</div>
+	<!-- header 메뉴 -->
+	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+		<ul class="nav navbar-nav">
+			<li>
+			<a sec:authorize="isAuthenticated()" th:href="@{/}">Gallery</a>
+			</li>
+			<li>
+			<a sec:authorize="isAuthenticated()" th:href="@{/member/auction}">Auction</a>
+			</li>
+			<li>
+			<a sec:authorize="isAuthenticated()" th:href="@{/member/store}">Store</a>
+			</li>
+			<li>
+			<a href="login.html">Login</a>
+			</li>
+		</ul>
+	</div>
+	<!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->
+</nav>
+<!-- Intro Header -->
+<header class="myheader"><div class="intro-body"></div></header>
+
+<body>
+	<section id="page-sample">
+	<div class="container content-section text-center" id="imgcontent">
+		<div id="cat"></div>
+		<div class="images">
+			<div class="imageFlex1">
+			<a href="https://artistu.kr/product/%EB%B9%88%EC%84%BC%ED%8A%B8-%EB%B0%98-%EA%B3%A0%ED%9D%90-%EB%B3%84%EC%9D%B4-%EB%B9%9B%EB%82%98%EB%8A%94-%EB%B0%A4-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%86%A1/3053/">
+				<img src="https://artistu.kr/web/product/big/20200107/d079ce86d0a41c338cc1855291d329e6.jpg"></a>
+			<div>빈센트 반 고흐<br>별이 빛나는 밤 스마트톡<br>￦<span>6000</span></div>
+			<a href="http://www.yes24.com/Product/Goods/77186411">
+				<img src="http://image.yes24.com/goods/77186411/XL"></a>
+			<div>빈센트 반 고흐<br>별이 빛나는 밤 우산/양산겸용 자동우산<br>￦<span>38720</span></div>
+			<a href="https://artmad.co.kr/product/buds-%EC%9A%94%ED%95%98%EB%84%A4%EC%8A%A4-%EB%B2%A0%EB%A5%B4%EB%A9%94%EB%A5%B4%EC%A7%84%EC%A3%BC%EA%B7%80%EA%B1%B8%EC%9D%B4%EB%A5%BC-%ED%95%9C-%EC%86%8C%EB%85%80-%EB%AA%85%ED%99%94-%EB%B2%84%EC%A6%88-%ED%94%8C%EB%9F%AC%EC%8A%A4-%EB%9D%BC%EC%9D%B4%EB%B8%8C-%ED%94%84%EB%A1%9C-%ED%95%98%EB%93%9C%EC%BC%80%EC%9D%B4%EC%8A%A4/1183/category/125/display/1/">
+				<img src="https://artmad.co.kr/web/product/big/202104/3114254782688a80fc24ff568d009e61.jpg"></a>
+			<div>요하네스 베르메르<br>진주귀걸이를 한 소녀 버즈 플러스/라이브/프로 하드케이스<br>￦<span>7900</span></div>
+			<a href="https://artistu.kr/product/%EB%B9%88%EC%84%BC%ED%8A%B8-%EB%B0%98-%EA%B3%A0%ED%9D%90-%EB%B3%84%EC%9D%B4-%EB%B9%9B%EB%82%98%EB%8A%94-%EB%B0%A4-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%86%A1/3053/">
+				<img src="https://artistu.kr/web/product/big/20200107/d079ce86d0a41c338cc1855291d329e6.jpg"></a>
+			<div>빈센트 반 고흐<br>별이 빛나는 밤 스마트톡<br>￦<span>6000</span></div>
+			<a href="https://artistu.kr/product/%EB%B9%88%EC%84%BC%ED%8A%B8-%EB%B0%98-%EA%B3%A0%ED%9D%90-%EB%B3%84%EC%9D%B4-%EB%B9%9B%EB%82%98%EB%8A%94-%EB%B0%A4-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%86%A1/3053/">
+				<img src="https://artistu.kr/web/product/big/20200107/d079ce86d0a41c338cc1855291d329e6.jpg"></a>
+			<div>빈센트 반 고흐<br>별이 빛나는 밤 스마트톡<br>￦<span>6000</span></div>
+			</div>
+		</div>
+		<div class="images">
+			<div class="imageFlex2">
+			<a href="https://artistu.kr/product/detail.html?product_no=3056&cate_no=169&recommend_type=l">
+				<img src="https://artistu.kr/web/product/big/20200107/ff33643cf6660f7b77aeb20264cf6918.jpg"></a>
+			<div>빈센트 반 고흐<br>생트 마리 드라메르의 바다 풍경 스마트톡<br>￦<span>6000</span></div>
+			<a href="https://www.intermarket.co.kr/src/product_detail.php?gdno=8530">
+				<img src="https://www.intermarket.co.kr/data/thumbnail/goods/thumb-5d119297dffa0_568x568.jpg"></a>
+			<div>빈센트 반 고흐<br>명화 에코백 (대형)<br>￦<span>6000</span></div>
+			<a href="https://artistu.kr/product/%EB%B9%88%EC%84%BC%ED%8A%B8-%EB%B0%98-%EA%B3%A0%ED%9D%90-%EB%B3%84%EC%9D%B4-%EB%B9%9B%EB%82%98%EB%8A%94-%EB%B0%A4-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%86%A1/3053/">
+				<img src="https://artistu.kr/web/product/big/20200107/d079ce86d0a41c338cc1855291d329e6.jpg"></a>
+			<div>빈센트 반 고흐<br>별이 빛나는 밤 스마트톡<br>￦<span>6000</span></div>
+			<a href="https://artistu.kr/product/%EB%B9%88%EC%84%BC%ED%8A%B8-%EB%B0%98-%EA%B3%A0%ED%9D%90-%EB%B3%84%EC%9D%B4-%EB%B9%9B%EB%82%98%EB%8A%94-%EB%B0%A4-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%86%A1/3053/">
+				<img src="https://artistu.kr/web/product/big/20200107/d079ce86d0a41c338cc1855291d329e6.jpg"></a>
+			<div>빈센트 반 고흐<br>별이 빛나는 밤 스마트톡<br>￦<span>6000</span></div>
+			<a href="https://artistu.kr/product/%EB%B9%88%EC%84%BC%ED%8A%B8-%EB%B0%98-%EA%B3%A0%ED%9D%90-%EB%B3%84%EC%9D%B4-%EB%B9%9B%EB%82%98%EB%8A%94-%EB%B0%A4-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%86%A1/3053/">
+				<img src="https://artistu.kr/web/product/big/20200107/d079ce86d0a41c338cc1855291d329e6.jpg"></a>
+			<div>빈센트 반 고흐<br>별이 빛나는 밤 스마트톡<br>￦<span>6000</span></div>
+			</div>
+		</div>
+		<div class="images">
+			<div class="imageFlex3">
+				<a href="https://artistu.kr/product/detail.html?product_no=3049&cate_no=169&recommend_type=l">
+					<img src="https://artistu.kr/web/product/big/20200107/74d3325fa533ee32672f4fe45298ea6b.jpg"></a>
+				<div>빈센트 반 고흐<br>꽃이 핀 아몬드 나무 스마트톡<br>￦<span>6000</span></div>
+				<a href="https://artistu.kr/product/%EB%B9%88%EC%84%BC%ED%8A%B8-%EB%B0%98-%EA%B3%A0%ED%9D%90-%EB%B3%84%EC%9D%B4-%EB%B9%9B%EB%82%98%EB%8A%94-%EB%B0%A4-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%86%A1/3053/">
+					<img src="https://harangmall.kr/web/product/big/202101/82e3c39361348aeb404c5f893d0c5133.jpg"></a>
+				<div>클로드 모네<br>파라솔을 든 여인 버즈 프로 & 버즈 라이브 케이스 <br>￦<span>22900</span></div>
+				<a href="https://artistu.kr/product/%EB%B9%88%EC%84%BC%ED%8A%B8-%EB%B0%98-%EA%B3%A0%ED%9D%90-%EB%B3%84%EC%9D%B4-%EB%B9%9B%EB%82%98%EB%8A%94-%EB%B0%A4-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%86%A1/3053/">
+					<img src="https://artistu.kr/web/product/big/20200107/d079ce86d0a41c338cc1855291d329e6.jpg"></a>
+				<div>빈센트 반 고흐<br>별이 빛나는 밤 스마트톡<br>￦<span>6000</span></div>
+				<a href="https://artistu.kr/product/%EB%B9%88%EC%84%BC%ED%8A%B8-%EB%B0%98-%EA%B3%A0%ED%9D%90-%EB%B3%84%EC%9D%B4-%EB%B9%9B%EB%82%98%EB%8A%94-%EB%B0%A4-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%86%A1/3053/">
+					<img src="https://artistu.kr/web/product/big/20200107/d079ce86d0a41c338cc1855291d329e6.jpg"></a>
+				<div>빈센트 반 고흐<br>별이 빛나는 밤 스마트톡<br>￦<span>6000</span></div>
+				<a href="https://artistu.kr/product/%EB%B9%88%EC%84%BC%ED%8A%B8-%EB%B0%98-%EA%B3%A0%ED%9D%90-%EB%B3%84%EC%9D%B4-%EB%B9%9B%EB%82%98%EB%8A%94-%EB%B0%A4-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%86%A1/3053/">
+					<img src="https://artistu.kr/web/product/big/20200107/d079ce86d0a41c338cc1855291d329e6.jpg"></a>
+				<div>빈센트 반 고흐<br>별이 빛나는 밤 스마트톡<br>￦<span>6000</span></div>
+		</div>
+	</div>
+</div>
+</section>
+</body>
+
+<!-- Footer -->
+<footer>
+<div class="container text-center">
+	<p class="credits">
+		Go to <i class="fa fa-love"></i><a href="https://github.com/893107/Full-stack-Project.git">GitHub</a>
+
+	</p>
+</div>
+</footer>
+<!-- jQuery -->
+<script src="/js/jquery.js"></script>
+<script src="/js/function.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="/js/theme.js"></script>
+</body>
+</html>

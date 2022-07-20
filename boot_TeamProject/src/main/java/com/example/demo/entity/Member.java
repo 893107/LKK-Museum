@@ -56,30 +56,5 @@ public class Member {
         this.phone = phone;
     }
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Member [id=");
-		builder.append(id);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append(", account=");
-		builder.append(account);
-		builder.append(", password=");
-		builder.append(password);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", phone=");
-		builder.append(phone);
-		builder.append(", lastAccessDt=");
-		builder.append(lastAccessDt);
-		builder.append(", regDt=");
-		builder.append(regDt);
-		builder.append("]");
-		return builder.toString();
-	}
-    
-    
-
 
 }

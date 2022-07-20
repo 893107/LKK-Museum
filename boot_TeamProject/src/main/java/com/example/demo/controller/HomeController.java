@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,8 +69,7 @@ public class HomeController {
         System.out.println(email);
     	mailService.mailSend(email);
         return "pages/home";
-    }   
-    
+    }
     
 	
 	@GetMapping("/emailCheck")
@@ -92,15 +90,13 @@ public class HomeController {
         
     	String membername = principal.getName();
     	Member mbinfo = memberService.getMember(membername);
-    	System.out.println(mbinfo);
     	model.addAttribute("memberinfo", mbinfo);
     	return "pages/userinfo";
     }
     
     @PreAuthorize("hasRole('ROLE_MEMBER')")
-    @PostMapping("/member/update")
+    @PostMapping("/update")
     public String UpdateMember(MemberTO memberTO) {
-    	
         System.out.println(memberTO);
         return "pages/home";
     }
@@ -117,9 +113,15 @@ public class HomeController {
         return "pages/denied";
     }
     
+    @PreAuthorize("hasRole('ROLE_MEMBER')")
+    @GetMapping("/member/store")
+    public String storeView() {
+        return "pages/store";
+    }
     
-    
-    
-    
-    
+    @PreAuthorize("hasRole('ROLE_MEMBER')")
+    @GetMapping("/member/auction")
+    public String auctionView() {
+        return "pages/auction";
+    }
 }

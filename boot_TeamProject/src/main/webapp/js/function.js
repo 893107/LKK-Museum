@@ -115,14 +115,12 @@ function datainfo(){
 
 //회원 정보 수정
 function update(){
-    
-	
-	document.getElementById('pw2').type = 'password'
+	document.getElementById('pw1').type = 'password'
+    document.getElementById('pw2').type = 'password'
     document.getElementById('checkpw').type = 'button'
     document.getElementById('checkemail').type = 'text'
     document.getElementById('updatedata').type = 'button'
 
-    document.getElementById('pw1').readOnly = false
     document.getElementById('emailinfo').readOnly = false
     document.getElementById('phoneinfo').readOnly = false
 }
@@ -153,14 +151,6 @@ function showlayer(){
     
 }
 
-$(document).mouseup(function (e){
-    var LayerPopup = $("#layer_bg");
-    if(LayerPopup.has(e.target).length === 0){
-        document.getElementById('layer_bg').style = 'display:none';
-        $("body").css("overflow","scroll");
-    }
-});
-
 //카운트다운 타이머
 function makeTimer() {
 
@@ -187,5 +177,4 @@ function makeTimer() {
     $("#seconds").html(seconds + "<span>Seconds</span>");		
 
 }
-
 setInterval(function() { makeTimer(); }, 1000);

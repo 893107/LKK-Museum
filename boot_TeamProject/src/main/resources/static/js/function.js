@@ -3,6 +3,7 @@
  - 웹 페이지를 다시 로딩하지 않고 데이터를 불러올 수 있게 해줌
 */
 
+//회원가입
 function idcheck(){
     console.log('함수 실행');
     let account = $('input#accountinfo').val();
@@ -99,10 +100,8 @@ function datainfo(){
                     error:function(){
                         alter("Error");
                     }
-                });                
+                });                     
                 form.submit();
-                
-                
             } else {
                 document.getElementById('printmsg4').innerHTML = '이메일 중복 체크를 실행해주세요.';
             }
@@ -111,6 +110,34 @@ function datainfo(){
         }
     } else {
         document.getElementById('printmsg4').innerHTML = '아이디 중복 확인을 실행해주세요.';
+    }
+};
+
+//회원 정보 수정
+function update(){
+    document.getElementById('pw2').type = 'password'
+    document.getElementById('checkpw').type = 'button'
+    document.getElementById('checkemail').type = 'text'
+    document.getElementById('updatedata').type = 'button'
+
+    document.getElementById('pw1').readOnly = false
+    document.getElementById('emailinfo').readOnly = false
+    document.getElementById('phoneinfo').readOnly = false
+}
+
+function dataupdate(){
+    console.log('함수 실행');
+    let form = $("#mypageform");
+   
+    if(document.getElementById("check2").value == 'Y'){
+          if(document.getElementById("check3").value == 'Y'){
+            document.getElementById('printmsg4').innerHTML = '';
+            form.submit();
+         } else {
+            document.getElementById('printmsg4').innerHTML = '이메일 중복 체크를 실행해주세요.';
+        }
+    } else {
+         document.getElementById('printmsg4').innerHTML = '비밀번호 확인을 실행해주세요.';
     }
 };
 
