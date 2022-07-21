@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>회원정보</title>
+<!-- Bootstrap Core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/css/theme.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal"/>
+</sec:authorize>
+
+<body>
+<div th:replace="/layout/nav.html :: fragment-nav"></div>
+
+
+<div class="container">
+    <form>
+        <input type="hidden" id="id" th:value="${board.id}">
+
+        <div class="form-group">
+            <label for="category">카테고리:</label>
+            <select class="form-control" id="category">
+                <option th:value="daily">일상</option>
+                <option th:value="date">데이트</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input th:value="${board.getTitle()}" type="text" class="form-control" placeholder="Enter title" id="title">
+        </div>
+
+        <div class="form-group">
+            <textarea th:utext="${board.getContent()}" class="form-control summernote" rows="5" id="content"></textarea>
+        </div>
+    </form>
+    <button id="btn-update" class="btn btn-primary">수정하기</button>
+<!-- 버튼을 밖으로 빼는건 json 요청을 하기 때문이다 -->
+</div>
+
+
+<!-- 썸머노트 사용 -->
+<script>
+    $('.summernote').summernote({
+        tabsize: 2,
+        height: 300,
+    });
+</script>
+
+<script src="/js/board.js"></script>
+<footer th:replace="/layout/footer.html :: fragment-footer"></footer>
+</body>
+</html>

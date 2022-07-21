@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>프리미엄 온라인 경매</title>
+<!-- Bootstrap Core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/css/theme.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+	<span id="tothetop">
+		<button class="action_btn" onclick="showlayer2()">
+			<span class="button__text">1</span>
+			<svg class="button__svg" role="presentational" viewBox="0 0 600 600">
+			  <defs>
+				<clipPath id="myClip">
+				  <rect x="0" y="0" width="100%" height="50%" />
+				</clipPath>
+			  </defs>
+			  <g clip-path="url(#myClip)">
+				<g id="money">
+				  <path d="M441.9,116.54h-162c-4.66,0-8.49,4.34-8.62,9.83l.85,278.17,178.37,2V126.37C450.38,120.89,446.56,116.52,441.9,116.54Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				  <path d="M424.73,165.49c-10-2.53-17.38-12-17.68-24H316.44c-.09,11.58-7,21.53-16.62,23.94-3.24.92-5.54,4.29-5.62,8.21V376.54H430.1V173.71C430.15,169.83,427.93,166.43,424.73,165.49Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				</g>
+				<g id="creditcard">
+				  <path d="M372.12,181.59H210.9c-4.64,0-8.45,4.34-8.58,9.83l.85,278.17,177.49,2V191.42C380.55,185.94,376.75,181.57,372.12,181.59Z" fill="#a76fe2" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				  <path d="M347.55,261.85H332.22c-3.73,0-6.76-3.58-6.76-8v-35.2c0-4.42,3-8,6.76-8h15.33c3.73,0,6.76,3.58,6.76,8v35.2C354.31,258.27,351.28,261.85,347.55,261.85Z" fill="#ffdc67" />
+				  <path d="M249.73,183.76h28.85v274.8H249.73Z" fill="#323c44" />
+				</g>
+			  </g>
+			  <g id="wallet">
+				<path d="M478,288.23h-337A28.93,28.93,0,0,0,112,317.14V546.2a29,29,0,0,0,28.94,28.95H478a29,29,0,0,0,28.95-28.94h0v-229A29,29,0,0,0,478,288.23Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				<path d="M512.83,382.71H416.71a28.93,28.93,0,0,0-28.95,28.94h0V467.8a29,29,0,0,0,28.95,28.95h96.12a19.31,19.31,0,0,0,19.3-19.3V402a19.3,19.3,0,0,0-19.3-19.3Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				<path d="M451.46,435.79v7.88a14.48,14.48,0,1,1-29,0v-7.9a14.48,14.48,0,0,1,29,0Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				<path d="M147.87,541.93V320.84c-.05-13.2,8.25-21.51,21.62-24.27a42.71,42.71,0,0,1,7.14-1.32l-29.36-.63a67.77,67.77,0,0,0-9.13.45c-13.37,2.75-20.32,12.57-20.27,25.77l.38,221.24c-1.57,15.44,8.15,27.08,25.34,26.1l33-.19c-15.9,0-28.78-10.58-28.76-25.93Z" fill="#7b8f91" />
+				<path d="M148.16,343.22a6,6,0,0,0-6,6v92a6,6,0,0,0,12,0v-92A6,6,0,0,0,148.16,343.22Z" fill="#323c44" />
+			  </g>
+			</svg>
+		  </button>
+	</span>
+<div class="container">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+		<i class="fa fa-bars"></i>
+		</button>
+		<a class="navbar-brand page-scroll">
+		Weekly Auction
+		</a>
+	</div>
+	<!-- header 메뉴 -->
+	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+		<ul class="nav navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="/">Gallery</a></li>
+			<li class="nav-item"><a class="nav-link" href="/auth/auction">Auction</a></li>
+			<li class="nav-item"><a class="nav-link" href="/auth/store">Store</a></li>
+			<li class="nav-item"><a class="nav-link" href="/user/updateForm">회원정보</a></li>
+			<li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+		</ul>
+	</div>
+	<!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->
+</nav>
+
+<!-- Intro Header -->
+<header class="auction-header">
+	<div class="intro-body">
+		<div class="container">
+			<div class="row">
+				<div class="text-center">
+					<h1 class="brand-heading">Q3 Topics : "Summer"</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- Project Details Section -->
+<section id="single-project">
+
+<!-- 경매일자 및 카운트다운 -->
+<div class="container content-section text-center">
+	<h3>17회차 (2022-07-18 ~ 2022-07-23)</h3>
+
+	종료까지 남은 시간
+	<!-- 카운트다운 시계 -->
+	<div id="timer" class="timer">
+		<span id="days" class="time"></span>
+		<span id="hours" class="time"></span>
+		<span id="minutes" class="time"></span>
+		<span id="seconds" class="time"></span>
+		<p style="font-size: 20px;">days&nbsp;&nbsp; hours&nbsp;&nbsp; minutes&nbsp;&nbsp; seconds</p>
+	</div>
+
+
+<div class="container content-section text-center">
+	<div class="row">
+		<h4>이번 주 경매품</h4>
+		<h2>"Summer Days"</h2>
+
+		<div class="row">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Vicente_Palmaroli_Summer_Days.jpg/686px-Vicente_Palmaroli_Summer_Days.jpg?20120908091704" width="40%" height="40%" alt="">
+			<!-- 이미지 원본 주소 : https://mdl.artvee.com/sftb/220638fg.jpg -->
+		</div><br>
+
+		<div class="col-lg-8 col-lg-offset-2">
+			<p>
+				작품 명 : Summer Days (c. 1885)<br>
+				화가 : vicente palmaroli y gonzalez<br>
+				<br>
+				비센테 팔마롤리 곤살레스(vicente palmaroli y gonzalez)는 주로 초상화와 풍속화를 그리는 스페인의 화가입니다. 그는 이탈리아의 화가이자 석판화가인 가에타노 팔마롤리의 아들로 자르잘레호에서 태어났습니다. 1853년 그의 아버지가 사망한 후, 그는 왕실 미술품 수집품에서 그의 공식적인 지위를 이어받은 뒤 1857년 로마로 가서 학업을 마치기 위해 휴가를 신청합니다. 그곳에서 그는 루이스 알바레스 카탈라, 디오스코로 푸에블라, 호세 카사도 델 알리살, 에두아르도 로살레스, 베네트 메르카데, 마리시 포투니, 알레호 베라 등 스페인 화가들과 만나게 되며 1862년 이탈리아에서 자신이 만든 두 작품을 가지고 국립 전시회에 참가하여 일등상을 수상하였습니다.
+			</p>
+			<p>
+				<input type="hidden" id="email" th:value="${user.getEmail()}">
+				<a class="btnghost" onclick="sendcolumn()"><i class="fa fa-envelope"></i> 전체 칼럼 받아보기</a>
+				<i style="font-size:12px;margin-right:3px;"></i> 
+				<a class="btnghost" onclick="showlayer()"><i class="fa fa-camera"></i> 경매 참여하기</a>
+			</p>
+		</div>
+	</div>
+</div>
+	<br>
+
+	<div class="container content-section text-center">
+		<h3>Online Auction</h3>
+		<p>
+			저희 미술관에서는 온라인 경매를 진행하고 있으며 모든 경매는 공개 입찰로 진행됩니다. <br>
+			만일 낙찰자가 결정되지 않을 경우, 해당 물품은 동일한 테마의 맨 마지막 순서로 밀리게 되며<br>
+			추후 경매 재진행을 통해 낙찰자를 결정하게 됩니다.
+		</p>
+	</div>
+</div>
+</section>
+
+<!-- 레이어 팝업 -->
+<div>
+	<div id="layer_bg">
+		<label >X</label>
+		<div id="popup" class="text-center">
+			<br><br>
+			<h3>17회차 : Summer Days</h3>
+			<form id="auctionform" action="" method="post">
+				<div class="div1">
+					현재 호가 : <input type="text" id="nowmoney" placeholder="현재 최고가 금액" class="text-center" readonly><br>
+					내 잔액 : <input type="text" id="budget" th:value="${user.getBudget()}" class="text-center" readonly>
+				</div><br>
+				<div class="div2">
+					<span style="font-size: 12px; color: red;">※ 경매 물품 최종 낙찰에 성공한 경우에만 입력하신 금액이 결제됩니다.</span><br>
+					<!-- 버튼 -->
+					<a class="btnghost">경매 참가하기</a>
+					<!-- 버튼 끝 -->
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- 레이어팝업2 -->
+<div>
+	<div id="layer_bg2">
+		<div id="popup"  class="text-center">
+			<br><h2>잔액 충전하기</h2>
+			<form id="auctionform" action="" method="post">
+				<div class="div1">
+					현재 잔액 : <input type="text" id="budget" th:value="${user.getBudget()}" class="text-center" readonly><br>
+					<input type="text" placeholder="충전하실 금액을 입력하세요." class="text-center">&nbsp;&nbsp;<a class="btnghost" onclick="">충전하기</a><br>
+					<a class="btnghost" onclick="closemoney()">닫기</a>
+				</div>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="container text-center">
+	<p class="credits">
+		Go to <i class="fa fa-love"></i><a href="https://github.com/893107/Full-stack-Project.git">GitHub</a>
+
+	</p>
+</div>
+</footer>
+<script src="/js/jquery.js"></script>
+<script src="/js/function.js"></script>
+<script src="/js/mouseover.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/theme.js"></script>
+</body>
+</html>
