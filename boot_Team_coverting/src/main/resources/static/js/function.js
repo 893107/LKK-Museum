@@ -115,14 +115,12 @@ function datainfo(){
 
 //회원 정보 수정
 function update(){
-    document.getElementById('pw2').type = 'password'
+    document.getElementById('password2').type = 'password'
     document.getElementById('checkpw').type = 'button'
     document.getElementById('checkemail').type = 'text'
-    document.getElementById('updatedata').type = 'button'
+    document.getElementById('btn-update').type = 'button'
 
-    document.getElementById('pw1').readOnly = false
-    document.getElementById('emailinfo').readOnly = false
-    document.getElementById('phoneinfo').readOnly = false
+    
 }
 
 function dataupdate(){
