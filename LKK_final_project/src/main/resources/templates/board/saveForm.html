@@ -1,41 +1,158 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <div th:replace="/layout/header.html :: fragment-header"></div>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>프리미엄 온라인 경매</title>
+<!-- Bootstrap Core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/css/theme.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 </head>
 
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal"/>
 </sec:authorize>
 
-<body>
-<div th:replace="/layout/nav.html :: fragment-nav"></div>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+	<span id="tothetop">
+		<button class="action_btn" onclick="showlayer2()">
+			<span class="button__text">1</span>
+			<svg class="button__svg" role="presentational" viewBox="0 0 600 600">
+			  <defs>
+				<clipPath id="myClip">
+				  <rect x="0" y="0" width="100%" height="50%" />
+				</clipPath>
+			  </defs>
+			  <g clip-path="url(#myClip)">
+				<g id="money">
+				  <path d="M441.9,116.54h-162c-4.66,0-8.49,4.34-8.62,9.83l.85,278.17,178.37,2V126.37C450.38,120.89,446.56,116.52,441.9,116.54Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				  <path d="M424.73,165.49c-10-2.53-17.38-12-17.68-24H316.44c-.09,11.58-7,21.53-16.62,23.94-3.24.92-5.54,4.29-5.62,8.21V376.54H430.1V173.71C430.15,169.83,427.93,166.43,424.73,165.49Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				</g>
+				<g id="creditcard">
+				  <path d="M372.12,181.59H210.9c-4.64,0-8.45,4.34-8.58,9.83l.85,278.17,177.49,2V191.42C380.55,185.94,376.75,181.57,372.12,181.59Z" fill="#a76fe2" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				  <path d="M347.55,261.85H332.22c-3.73,0-6.76-3.58-6.76-8v-35.2c0-4.42,3-8,6.76-8h15.33c3.73,0,6.76,3.58,6.76,8v35.2C354.31,258.27,351.28,261.85,347.55,261.85Z" fill="#ffdc67" />
+				  <path d="M249.73,183.76h28.85v274.8H249.73Z" fill="#323c44" />
+				</g>
+			  </g>
+			  <g id="wallet">
+				<path d="M478,288.23h-337A28.93,28.93,0,0,0,112,317.14V546.2a29,29,0,0,0,28.94,28.95H478a29,29,0,0,0,28.95-28.94h0v-229A29,29,0,0,0,478,288.23Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				<path d="M512.83,382.71H416.71a28.93,28.93,0,0,0-28.95,28.94h0V467.8a29,29,0,0,0,28.95,28.95h96.12a19.31,19.31,0,0,0,19.3-19.3V402a19.3,19.3,0,0,0-19.3-19.3Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				<path d="M451.46,435.79v7.88a14.48,14.48,0,1,1-29,0v-7.9a14.48,14.48,0,0,1,29,0Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+				<path d="M147.87,541.93V320.84c-.05-13.2,8.25-21.51,21.62-24.27a42.71,42.71,0,0,1,7.14-1.32l-29.36-.63a67.77,67.77,0,0,0-9.13.45c-13.37,2.75-20.32,12.57-20.27,25.77l.38,221.24c-1.57,15.44,8.15,27.08,25.34,26.1l33-.19c-15.9,0-28.78-10.58-28.76-25.93Z" fill="#7b8f91" />
+				<path d="M148.16,343.22a6,6,0,0,0-6,6v92a6,6,0,0,0,12,0v-92A6,6,0,0,0,148.16,343.22Z" fill="#323c44" />
+			  </g>
+			</svg>
+		  </button>
+	</span>
+<div class="container">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+		<i class="fa fa-bars"></i>
+		</button>
+		<a class="navbar-brand page-scroll">
+		Auction </a>
+	</div>
+	
+	<!-- Collect the nav links, forms, and other content for toggling -->
 
+	<!--    일반 유저 페이지        -->
+                <div sec:authorize="hasRole('USER')" class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                    <ul class="nav navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="/daily">입찰목록</a></li>
+			<li class="nav-item"><a class="nav-link" href="/auth/auction">Auction</a></li>
+			<li class="nav-item"><a class="nav-link" href="/auth/store">Store</a></li>
+			<li class="nav-item"><a class="nav-link" href="/user/myBoard">내 입찰정보</a></li>
+			<li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                       <!--  <li class="nav-item"><a class="nav-link" href="/user/updateForm">회원정보</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                카테고리
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/">전체 글 보기</a>
+                                <a class="dropdown-item" href="/daily">일상</a>
+                                <a class="dropdown-item" href="/date">데이트</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/board/saveForm">글쓰기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user/myBoard">작성글</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li> -->
+                    </ul>
+                </div>
+            </div>
+           	<!-- /.navbar-collapse -->
+	<!-- /.container -->
+	</nav>
+<header class="myheader">
+</header>
+
+
+<div class="container content-section text-center">
+<div class="row">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Vicente_Palmaroli_Summer_Days.jpg/686px-Vicente_Palmaroli_Summer_Days.jpg?20120908091704" width="40%" height="40%" alt="">
+			<!-- 이미지 원본 주소 : https://mdl.artvee.com/sftb/220638fg.jpg -->
+		</div>
+	</div>	
 
 <div class="container">
+	
     <form>
         <div class="form-group">
             <div class="form-group">
-                <label for="category">카테고리:</label>
+                <label for="category">경매 물품:</label>
                 <select class="form-control" id="category">
-                    <option th:value="daily">일상</option>
-                    <option th:value="date">데이트</option>
+                    <option th:value="daily">Summer Days - vicente palmaroli y gonzalez</option>
+                    <option th:value="date">The Starry Night - Vincent Willem van Gogh</option>
                 </select>
             </div>
 
-            <label for="title">Title</label>
+            <label for="title">현재 호가</label>
             <input type="text" class="form-control" placeholder="Enter title" id="title">
         </div>
 
         <div class="form-group">
-            <label for="content">Content</label>
-            <textarea class="form-control summernote" rows="5" id="content"></textarea>
+            <label for="content">입찰</label>
+           <input type="text" class="form-control" placeholder="Show Me The Money" id="content">
+            
         </div>
     </form>
-    <button id="btn-save" class="btn btn-primary">글쓰기</button>
+    <button id="btn-save" class="btn btn-primary">입찰</button>
 <!-- 버튼을 밖으로 빼는건 json 요청을 하기 때문이다 -->
 </div>
 
+<!-- 레이어팝업2 -->
+<div>
+	<div id="layer_bg2">
+		<div id="popup"  class="text-center">
+			<br><h2>잔액 충전하기</h2>
+			<form id="auctionform" action="" method="post">
+				<div class="div1">
+					현재 잔액 : <input type="text" id="mymoney" placeholder="0" class="text-center" readonly><br>
+					<input type="text" placeholder="충전하실 금액을 입력하세요." class="text-center">&nbsp;&nbsp;<a class="btnghost" onclick="">충전하기</a><br>
+					<a class="btnghost" onclick="closemoney()">닫기</a>
+				</div>
+		</div>
+	</div>
+</div>
+
+<footer>
+<div class="container text-center">
+	<p class="credits">
+		Go to <i class="fa fa-love"></i><a href="https://github.com/893107/Full-stack-Project.git">GitHub</a>
+
+	</p>
+</div>
+</footer>
 
 <!-- 썸머노트 사용 -->
 <script>
@@ -49,6 +166,17 @@
 </script>
 
 <script src="/js/board.js"></script>
-<footer th:replace="/layout/footer.html :: fragment-footer"></footer>
+<script src="/js/user.js"></script>
+<!-- jQuery -->
+<script src="/js/jquery.js"></script>
+<script src="/js/function.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js"></script>
+<!-- Contact JavaScript -->
+<script src="/js/validate.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="/js/theme.js"></script>
 </body>
 </html>

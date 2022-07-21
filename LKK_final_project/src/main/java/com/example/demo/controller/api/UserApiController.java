@@ -90,7 +90,7 @@ public class UserApiController {
     @GetMapping("/auth/mailsend")
     public void execMail(@RequestParam("email") String email) {
         System.out.println(email);
-    	mailService.mailSend(email);
+    	mailService.mailSend(email);    	
     }
     
     @GetMapping("/auth/mailsend2")
