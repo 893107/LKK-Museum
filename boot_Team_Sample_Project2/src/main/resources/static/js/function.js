@@ -6,17 +6,17 @@
 //회원가입
 function idcheck(){
     console.log('함수 실행');
-    let account = $('input#accountinfo').val();
-    console.log(account);
-    if(account != ''){ //아이디 미입력시 버튼 클릭 검증
+    let username = $('input#username').val();
+    console.log(username);
+    if(username != ''){ //아이디 미입력시 버튼 클릭 검증
         $.ajax({
-            url:'/idCheck', 
+            url:'/auth/idCheck', 
             type:'GET', 
-            data: {account: account},
+            data: {username: username},
             success:function(cnt){ 
                 if(cnt == 0){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
                     document.getElementById('printmsg1').innerHTML = '사용 가능한 아이디 입니다.';
-                    document.getElementById("accountinfo").readOnly = true;
+                    document.getElementById("username").readOnly = true;
                     document.getElementById("check1").value = 'Y';
                 } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
                     document.getElementById('printmsg1').innerHTML = '이미 사용중인 아이디 입니다.';
@@ -36,8 +36,8 @@ function idcheck(){
 
 function pwcheck() {
     console.log('함수 실행');
-    let p1 = document.getElementById('pw1').value;
-     let p2 = document.getElementById('pw2').value;
+     let p1 = $('input#password').val();
+     let p2 = $('input#password2').val();
     if(p1 != '' && p2 != '') {
         if( p1 != p2 ) {
             document.getElementById('printmsg2').innerHTML = '비밀번호가 일치하지 않습니다. 다시 확인해주세요.';
@@ -54,11 +54,11 @@ function pwcheck() {
 
 function emailcheck(){
     console.log('함수 실행');
-    let email = $('input#emailinfo').val();
+    let email = $('input#email').val();
     console.log(email);
     if(email != ''){
         $.ajax({
-            url:'/emailCheck', 
+            url:'/auth/emailCheck', 
             type:'GET', 
             data: {email: email},
             success:function(cnt){ 

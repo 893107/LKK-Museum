@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,31 @@ public class UserService {
         });
         return user;
     }
+    
+    @Transactional(readOnly = true)
+    public int idcheck(String username) {
+    	Optional user = userRepository.findByUsername(username);
+    	if(user.isPresent()) {
+        	return 1;
+        }else {
+        	return 0;
+        }
+    	
+        	
+    }
+    
+    @Transactional(readOnly = true)
+    public int emailcheck(String email) {
+    	Optional emailinfo = userRepository.findByEmail(email);
+    	if(emailinfo.isPresent()) {
+        	return 1;
+        }else {
+        	return 0;
+        }
+    	
+        	
+    }
+    
 
 
     @Transactional // 전체가 성공시 Commit, 실패시 Rollback - springframework

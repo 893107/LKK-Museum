@@ -10,6 +10,44 @@
  *
  */
 
+
+/*
+function datainfo(){
+    console.log('함수 실행');
+    let form = $("#contactform");
+    let email = $('input#emailinfo').val();
+    
+    if(document.getElementById("check1").value == 'Y'){
+        if(document.getElementById("check2").value == 'Y'){
+            if(document.getElementById("check3").value == 'Y'){
+                document.getElementById('printmsg4').innerHTML = '';
+                $.ajax({
+                    url:'/mailsend', 
+                    type:'GET', 
+                    data: {email: email},
+                    success:function(){ 
+                    	alter("succcess");
+                    },
+                    error:function(){
+                        alter("Error");
+                    }
+                });                     
+                form.submit();
+            } else {
+                document.getElementById('printmsg4').innerHTML = '이메일 중복 체크를 실행해주세요.';
+            }
+        } else {
+            document.getElementById('printmsg4').innerHTML = '비밀번호 확인을 실행해주세요.';
+        }
+    } else {
+        document.getElementById('printmsg4').innerHTML = '아이디 중복 확인을 실행해주세요.';
+    }
+};
+
+*/
+
+
+
 let index = {
     init: function () {
         // jQuery 사용
@@ -24,36 +62,55 @@ let index = {
     },
 
     save: function () {
-        let data = {
+        
+    	console.log('함수 실행');
+        let form = $("#contactform");
+        let email = $('input#email').val();
+    	
+    	let data = {
             username: $("#username").val(),
             password: $("#password").val(),
-            email: $("#email").val()
+            email: $("#email").val(),
+            phone: $("#phone").val(),
+            name: $("#name").val()
         }
 
         // ajax 호출시 default가 비동기 호출이다.
         // ajax 통신을 이용해서 3개의 데이터를 json으로 변경하여 insert 요청을 한다.
         // ajax가 통신을 성공하고 서버가 json을 리턴해주면 자동으로 자바 오브젝트로 변환해줌.
-        $.ajax({
-            // 회원가입 수행 요청
-            type: "POST",
-            url: "/auth/joinProc",
-            data: JSON.stringify(data), // http body데이터
-            contentType: "application/json; charset=utf-8", // body데이터가 어떤 타입인지 (MIME)
-            dataType: "json" // 요청을 서버로해서 응답이 왔을 때, 기본적으로 모든 것이 문자열 (생긴게 json이라면 javascript 오브젝트로 변경해줌)
-        }).done(function (res) {
-            // 회원가입 오류 잡기 (아이디 중복일 경우) - GlobalExceptionHandler
-            if(res.status === 500) {
-                alert("회원가입에 실패하였습니다.");
-            } else {
-                alert("회원가입이 완료되었습니다.");
-                location.href = "/";
-            }
+        
+    	if(document.getElementById("check1").value == 'Y'){
+            if(document.getElementById("check2").value == 'Y'){
+                if(document.getElementById("check3").value == 'Y'){
+                    document.getElementById('printmsg4').innerHTML = '';
+                    $.ajax({
+                        // 회원가입 수행 요청
+                        type: "POST",
+                        url: "/auth/joinProc",
+                        data: JSON.stringify(data), // http body데이터
+                        contentType: "application/json; charset=utf-8", // body데이터가 어떤 타입인지 (MIME)
+                        dataType: "json" // 요청을 서버로해서 응답이 왔을 때, 기본적으로 모든 것이 문자열 (생긴게 json이라면 javascript 오브젝트로 변경해줌)
+                    }).done(function (res){
+                        // 회원가입 오류 잡기 (아이디 중복일 경우) - GlobalExceptionHandler
+                        if(res.status === 500) {
+                            alert("회원가입에 실패하였습니다.");
+                        } else {
+                            alert("회원가입이 완료되었습니다.");
+                            location.href = "/";
+                        }
 
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
-
-    },
+                    }).fail(function (error) {
+                        alert(JSON.stringify(error));
+                    });
+	                }else {
+	                    document.getElementById('printmsg4').innerHTML = '이메일 중복 체크를 실행해주세요.';
+	                }
+	            } else {
+	                document.getElementById('printmsg4').innerHTML = '비밀번호 확인을 실행해주세요.';
+	            }
+	        } else {
+	            document.getElementById('printmsg4').innerHTML = '아이디 중복 확인을 실행해주세요.';
+	        }},
 
 
 

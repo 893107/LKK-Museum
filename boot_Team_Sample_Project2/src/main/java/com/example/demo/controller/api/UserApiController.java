@@ -6,9 +6,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.config.auth.PrincipalDetail;
@@ -51,6 +54,28 @@ public class UserApiController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+    }
+    
+    @GetMapping("/auth/idCheck")
+	@ResponseBody
+	public int idCheck(@RequestParam("username") String username){
+		
+		int cnt = userService.idcheck(username);
+		System.out.println(username);
+		System.out.println(cnt);
+		return cnt;
+		
+    }
+    
+    @GetMapping("/auth/emailCheck")
+	@ResponseBody
+	public int emailCheck(@RequestParam("email") String email){
+		
+		int cnt = userService.emailcheck(email);
+		System.out.println(email);
+		System.out.println(cnt);
+		return cnt;
+	
     }
 
 

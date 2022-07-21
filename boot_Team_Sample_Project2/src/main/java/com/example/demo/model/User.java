@@ -33,6 +33,12 @@ public class User {
 
     @Column(nullable = false, length = 50)
     private String email;
+    
+    @Column(length = 255)
+	private String phone;
+    
+    @Column(length = 255)
+	private String name;
 
 //    @ColumnDefault("user")
     // DB는 RoleType이라는게 없어서, String임을 알려준다.
