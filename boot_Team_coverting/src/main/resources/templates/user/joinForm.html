@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>회원가입 페이지</title>
+<title>회원가입 - Art Museum</title>
 <!-- Bootstrap Core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
@@ -33,15 +33,14 @@
 					data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="index.html"> 미술관 </a>
+				<a class="navbar-brand page-scroll">미술관</a>
 			</div>
 			<!--  비 로그인 페이지  -->
             <div sec:authorize="isAnonymous()" class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <div>
                     <ul class="nav navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="/">메인화면</a></li>                        
-                        <li class="nav-item"><a class="nav-link" href="/auth/loginForm">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/auth/joinForm">회원가입</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Gallery</a></li>                        
+                        <li class="nav-item"><a class="nav-link" href="/auth/loginForm">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -75,7 +74,7 @@
 		            <input type="email"  placeholder="이메일 주소(E-MAIL ADDRESS)" id="email" required>
 		            <input type="button" id="checkemail" class="clearfix btn" value="이메일 중복 확인" onclick="emailcheck()"><span id="printmsg3"></span>
 		            <input type="text"  placeholder="전화번호(PHONE NUMBER)" id="phone" required>
-		            <input type="button" id="btn-save" class="clearfix btn" value="가입하기" ><span id="printmsg4"></span>
+		            <input type="button" id="finalbtn" class="clearfix btn" value="가입하기" ><span id="printmsg4"></span>
 		            <input type="hidden" id="check1" value=""><input type="hidden" id="check2" value=""><input type="hidden" id="check3" value="">
 		            
 		        </div>
