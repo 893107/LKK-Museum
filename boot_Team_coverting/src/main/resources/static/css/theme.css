@@ -523,6 +523,12 @@ section {
 }
 
 /* 경매장 */
+#tothetop { 
+	position: fixed; 
+	bottom: 50%; 
+	right: 3rem; 
+	cursor: pointer; 
+}
 .action_btn {
 	border-radius: 20px;
 	background-color: #000;
@@ -617,21 +623,18 @@ section {
 	border-color: black;
 	outline: none;
 	background-color: purple;
-	padding: 1rem 65px 1rem 2rem;
+	padding: 1rem 30px 1rem 2rem;
 	position: relative;
+	color: rgb(255, 255, 255);
+	font-size: 15px;
+	font-family: "Lato", sans-serif;
 	border-radius: 8px;
 	letter-spacing: 0.7px;
 	background-color: #ffffff;
 	cursor: pointer;
 	box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
   }
-  
-  .action_btn .button__text {
-	  color: rgb(0, 0, 0);
-	  font-size: 15px;
-		font-family: "Lato", sans-serif;
-  }
-  
+
   .action_btn:active {
 	transform: translateY(1px);
   }
@@ -642,15 +645,16 @@ section {
 	bottom: 6px;
 	right: 0.2rem;
 	height: 140%;
-  }  
+  } 
 
 /* 로그인폼 */
 .logincontainer {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25),0 10px 10px rgba(0,0,0,0.22);
   border-radius: 20px;
-  position: relative;
-  left: 25%;
-  top: 20%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   width: 768px;
   max-width: 100%;
   min-height: 480px;
@@ -940,6 +944,44 @@ a { text-decoration: none; }
     color:#fff;
 }
  
+#layer_bg2 {
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+}
+ 
+#layer_bg2 > #popup {
+    position:absolute;
+    padding:15px;
+    box-sizing:border-box;
+    border-radius:15px; 
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:600px;
+    height:400px;
+	color: #000;
+    background:#fff;
+    box-shadow: 7px 7px 5px rgba(0,0,0,0.2); 
+}
+ 
+#layer_bg2 > #popup > h2 {
+    margin-bottom:25px;
+}
+ 
+#layer_bg2 > #popup > h2 > label {
+    float: right;
+}
+
+#layer_bg2 .btnghost {
+	align-items: center;
+    justify-content: flex-start;
+}
+
 #layer_bg {
     display:none;
     position:absolute;
@@ -972,29 +1014,25 @@ a { text-decoration: none; }
 #layer_bg > #popup > h2 > label {
     float: right;
 }
-
 /* 카운트다운 타이머 */
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Covered+By+Your+Grace&family=Gentium+Book+Plus&display=swap');
 
 #days {
-  font-size: 200px;
-  font-family: 'Covered By Your Grace', cursive;
-  color: #41e0b3;
+  font-size: 50px;
+  /* font-family: 'Covered By Your Grace', cursive; */
+  color: #000000;
 }
 #hours {
-  font-size: 150px;
-  font-family: 'Covered By Your Grace', cursive;
-  color: #22e6f0;
+  font-size: 50px;
+  color: #000000;
 }
 #minutes {
-  font-size: 100px;
-  font-family: 'Covered By Your Grace', cursive;
-  color: #7499f6;
+  font-size: 50px;
+  color: #000000;
 }
 #seconds {
   font-size: 50px;
-  font-family: 'Covered By Your Grace', cursive;
-  color: #585acd;
+  color: #000000;
 }
 
 #timer.div {

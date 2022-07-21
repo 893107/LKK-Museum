@@ -8,17 +8,17 @@ function idcheck(){
     console.log('함수 실행');
     let username = $('input#username').val();
     console.log(username);
-    if(username != ''){ //아이디 미입력시 버튼 클릭 검증
+    if(username != ''){ 
         $.ajax({
             url:'/auth/idCheck', 
             type:'GET', 
             data: {username: username},
             success:function(cnt){ 
-                if(cnt == 0){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
+                if(cnt == 0){ 
                     document.getElementById('printmsg1').innerHTML = '사용 가능한 아이디 입니다.';
                     document.getElementById("username").readOnly = true;
                     document.getElementById("check1").value = 'Y';
-                } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
+                } else { 
                     document.getElementById('printmsg1').innerHTML = '이미 사용중인 아이디 입니다.';
                     document.getElementById("check1").value = 'N';
                 }
@@ -115,12 +115,14 @@ function datainfo(){
 
 //회원 정보 수정
 function update(){
-    document.getElementById('password2').type = 'password'
+    document.getElementById('pw2').type = 'password'
     document.getElementById('checkpw').type = 'button'
     document.getElementById('checkemail').type = 'text'
-    document.getElementById('btn-update').type = 'button'
+    document.getElementById('updatedata').type = 'button'
 
-    
+    document.getElementById('pw1').readOnly = false
+    document.getElementById('emailinfo').readOnly = false
+    document.getElementById('phoneinfo').readOnly = false
 }
 
 function dataupdate(){
@@ -146,9 +148,16 @@ function showlayer(){
         "top": (($(window).height()-$("#layer_bg").outerHeight())/2+$(window).scrollTop())+"px",
         "left": (($(window).width()-$("#layer_bg").outerWidth())/2+$(window).scrollLeft())+"px"
     });
+    $("body").css("overflow","hidden");
+}
 
-    $("body").css("overflow","hidden");//body 스크롤바 없애기
-    
+function showlayer2(){
+    document.getElementById('layer_bg2').style = 'display:block';
+    $("#layer_bg2").css({
+        "top": (($(window).height()-$("#layer_bg2").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#layer_bg2").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
 }
 
 $(document).mouseup(function (e){
@@ -158,6 +167,11 @@ $(document).mouseup(function (e){
         $("body").css("overflow","scroll");
     }
 });
+
+function closemoney(){
+    document.getElementById('layer_bg2').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
 
 //카운트다운 타이머
 function makeTimer() {
@@ -179,11 +193,19 @@ function makeTimer() {
     if (minutes < "10") { minutes = "0" + minutes; }
     if (seconds < "10") { seconds = "0" + seconds; }
 
-    $("#days").html(days + "<span>Days</span>");
-    $("#hours").html(hours + "<span>Hours</span>");
-    $("#minutes").html(minutes + "<span>Minutes</span>");
-    $("#seconds").html(seconds + "<span>Seconds</span>");		
+    $("#days").html(days + "<span> : </span>");
+    $("#hours").html(hours + "<span> : </span>");
+    $("#minutes").html(minutes + "<span> : </span>");
+    $("#seconds").html(seconds);		
 
 }
 
 setInterval(function() { makeTimer(); }, 1000);
+
+$(document).ready(function(){
+    var currentPosition = parseInt($(".go-to-top").css("top"));
+    $(window).scroll(function() {
+      var position = $(window).scrollTop(); 
+      $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+    });
+});
