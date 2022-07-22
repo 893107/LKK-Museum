@@ -67,47 +67,47 @@
 
 <!-- Contact Section -->
 <section id="contact">
-<div class="container content-section">
+<div class="container content-section text-center">
 	<div class="row col-lg-offset-2">
 		<h1>My Profile</h1>
-
-	<div class="col-lg-8 col-lg-offset-2">
-    	<form id="mypageform">
-        <input type="hidden" id="id" th:value="${user.id}">
-
-		
-        <div class="form" th:if="${user.oauth != null}">
-            <div class="form">
-                <label for="username">username</label>
-                <input type="text" th:value="${user.getUsername()}" class="form-control" placeholder="Enter username" id="username" readonly>
-            </div>
-        </div>
-
-        <div th:unless="${user.oauth != null}">
-            <div class="form">
-        	이름 : <input type="text" th:value="${user.getName()}" placeholder="성함 *" id="name" readonly><br>        
-        	아이디: <input type="text" th:value="${user.getUsername()}" placeholder="아이디(ID) *" id="username" readonly><br>
-        	비밀번호 :<input type="password"  placeholder="Enter password" id="password"><br>
-        	<input type="hidden" id="password2" placeholder="비밀번호 확인(REPEAT PASSWORD) *" required><br>
-			<input type="hidden" id="checkpw" class="clearfix btn" value="비밀번호 확인" onclick="pwcheck()"><span id="printmsg2"></span><br>
-        	이메일 :<input type="email" th:value="${user.getEmail()}"  placeholder="Enter email" id="email"><br>
-        	<input type="hidden" id="checkemail" class="clearfix btn" value="이메일 중복 확인" onclick="emailcheck()"><span id="printmsg3"></span><br>
-        	전화번호:<input type="text" th:value="${user.getPhone()}"  placeholder="Enter phonenumber" id="phone"><br> 
-           	예산:<input type="text" th:value="${user.getBudget()}" class="form-control" id="budget">
-            <input type="button" id="infocheck" class="clearfix btn" value="내 정보 변경하기" onclick="update()"><br>
-            <input type="hidden" id="btn-update" class="clearfix btn" value="확인" ><span id="printmsg4"></span><br>
-            <input type="hidden" id="check2" value=""><input type="hidden" id="check3" value="">
-            </div>         
-	            
-        </div>
-
-
-
-
-    	</form>
-    
-		</div>
 	</div>
+	
+		<div class="col-lg-8 text-center" id="alibox">
+			<form id="mypageform">
+				<input type="hidden" id="id" th:value="${user.id}">
+
+				<div class="form" th:if="${user.oauth != null}">
+					<div class="form">
+						<label for="username">username</label>
+						<input type="text" th:value="${user.getUsername()}" class="form-control" placeholder="Enter username" id="username" readonly>
+					</div>
+				</div>
+
+				<div th:unless="${user.oauth != null}">
+					<div class="form">
+						<div class="showvalue">- 이름</div>
+						<input type="text" th:value="${user.getName()}" placeholder="성함 *" id="name" readonly><br>
+						<div class="showvalue">- 아이디</div>
+						<input type="text" th:value="${user.getUsername()}" placeholder="아이디(ID) *" id="username" readonly><br>
+						<div class="showvalue" id="pwdiv" style="display: none;">- 비밀번호</div>
+						<input type="hidden" placeholder="Enter password" id="password" required><br>
+						<input type="hidden" id="password2" placeholder="비밀번호 확인(REPEAT PASSWORD) *" required><br>
+						<input type="hidden" id="checkpw" class="clearfix btn" value="비밀번호 확인" onclick="pwcheck()"><span id="printmsg2"></span><br>
+						<div class="showvalue">- 이메일</div>
+						<input type="email" th:value="${user.getEmail()}"  placeholder="Enter email" id="email" readonly><br>
+						<input type="hidden" id="checkemail" class="clearfix btn" value="이메일 중복 확인" onclick="emailcheck()"><span id="printmsg3"></span><br>
+						<div class="showvalue">- 전화번호</div>
+						<input type="text" th:value="${user.getPhone()}"  placeholder="Enter phonenumber" id="phone" readonly><br> 
+						<div class="showvalue">- 예산</div>
+						<input type="text" th:value="${user.getBudget()}" id="budget" readonly><br> 
+						<input type="button" id="infocheck" class="clearfix btn" value="내 정보 변경하기" onclick="update()">&emsp;
+						<input type="hidden" id="btn-update" class="clearfix btn" value="확인" ><span id="printmsg4"></span><br>
+						<input type="hidden" id="check2" value=""><input type="hidden" id="check3" value="">
+					</div>
+				</div>
+			</form>
+		</div>
+	
 
 </div>
 </section>

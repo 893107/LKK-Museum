@@ -473,17 +473,25 @@ section {
 	transition:border linear 0.2s,box-shadow linear 0.2s;	
 }
 /* 회원정보 수정 */
-#mypageform{
-	width:80%;
+#alibox {
+	width:100%;
 }
-
+#alibox form div.showvalue {
+	text-align: center;
+	width:50%;
+}
+#mypageform{
+	/* width:100%; */
+	flex-direction: column;
+	place-items: center;
+}
 #mypageform input{
 	border:0px;
 	border-bottom:2px solid #333;
 	width:50%;
 	background-color:transparent;
 	padding:20px 0px;
-	/* text-transform:uppercase; */
+	text-transform:uppercase;
 	letter-spacing:2px;
 	margin-bottom:20px;
 }
@@ -494,7 +502,12 @@ section {
 	padding:10px 20px;
 	display:inline-block;
 }
-
+#mypageform input#btn-update {
+	width:auto;
+	border:2px solid;
+	padding:10px 20px;
+	display:inline-block;
+}
 #mypageform input#infocheck {
 	width:auto;
 	border:2px solid;
@@ -762,25 +775,6 @@ button.newsignup_btn {
 }
 
 /* 메인화면 전시회 */
-/* #imgcontent {
-	width: 80%;
-	margin: auto;
-	overflow: hidden;
-  }
-  .images {
-	width: 100%;
-	height: auto;
-  }
-  .images a {
-	width: 300px;
-	height: 300px;
-  }
-  .images a img {
-	width: 100%;
-	vertical-align: top;
-	object-fit: contain;
-  } */
-
 #page-sample {
 	text-align: center;
 	place-items: center;
@@ -814,10 +808,12 @@ button.newsignup_btn {
 	  place-items: center;
 	}
 	.gallery1 {
+	  height: 100%;
+	  flex-direction: column;
 	  display: flex;
 	  flex-direction: column;
 	  row-gap: 60px;
-	  place-items: center;
+	  place-items: top;
 	  vertical-align: top;
 	}
 	.gallery2 {
@@ -842,7 +838,9 @@ button.newsignup_btn {
 		vertical-align: top;
 	  }
   }  
-
+#contact {
+	place-items: center;
+}
 /* 굿즈 스토어 */
 #imgcontent {
 	width: 80%;

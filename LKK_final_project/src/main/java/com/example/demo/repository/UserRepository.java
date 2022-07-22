@@ -8,23 +8,10 @@ import com.example.demo.model.User;
 
 import java.util.Optional;
 
-// DAO
-// 자동으로 bean 등록
-// @Repository 생략가능
-
-@Repository // JpaRepository에 빈으로 등록되는게 있어서, 굳이 이 어노테이션을 안 써도 됨
+@Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    // SELECT * FROM user WHERE username = 1?;
-    Optional<User> findByUsername(String username);
-    Optional<User> findByEmail(String email);
+
+	Optional<User> findByUsername(String username);
+
+	Optional<User> findByEmail(String email);
 }
-
-
-// JPA Naming Query 전략
-// SELECT * FROM user WHERE username = ? AND password = ?;
-
-
-//    User findByUsernameAndPassword(String username, String password);
-//
-//    @Query(value="SELECT * FROM user WHERE username = ?1 AND password = ?2", nativeQuery = true)
-//    User login(String username, String password);
