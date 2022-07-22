@@ -67,7 +67,8 @@ public class BoardController {
 	}
 
 	@GetMapping("/board/saveForm")
-	public String saveForm() {
+	public String saveForm(Model model, @AuthenticationPrincipal PrincipalDetail principalDetail) {
+		model.addAttribute("user", principalDetail.getUser());
 		return "board/saveForm";
 	}
 }

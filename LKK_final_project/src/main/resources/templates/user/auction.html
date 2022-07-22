@@ -145,6 +145,7 @@
 </div>
 </section>
 
+
 <!-- 레이어 팝업 -->
 <div>
 	<div id="layer_bg">
@@ -155,18 +156,20 @@
 			<form id="auctionform" action="" method="post">
 				<div class="div1">
 					현재 호가 : <input type="text" id="nowmoney" placeholder="현재 최고가 금액" class="text-center" readonly><br>
-					내 잔액 : <input type="text" id="budget" th:value="${user.getBudget()}" class="text-center" readonly>
+					내 잔액 : <input type="text" id="mymoney" placeholder="0" class="text-center" readonly>
 				</div><br>
 				<div class="div2">
+					
 					<span style="font-size: 12px; color: red;">※ 경매 물품 최종 낙찰에 성공한 경우에만 입력하신 금액이 결제됩니다.</span><br>
 					<!-- 버튼 -->
-					<a class="btnghost">경매 참가하기</a>&emsp;<a class="btnghost" onclick="closela()">닫기</a>
+					<a class="btnghost" href="/board/saveForm">경매 참가하기</a>&emsp;<a class="btnghost" onclick="closela()">닫기</a>
 					<!-- 버튼 끝 -->
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
+
 
 <!-- 레이어팝업2 -->
 <div>

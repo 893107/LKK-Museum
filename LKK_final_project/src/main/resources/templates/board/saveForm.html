@@ -13,40 +13,36 @@
 
 
 <div class="container">
+    
+    <div class="container content-section text-center" >
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Vicente_Palmaroli_Summer_Days.jpg/686px-Vicente_Palmaroli_Summer_Days.jpg?20120908091704" width="40%" height="40%" alt="">
+			<!-- 이미지 원본 주소 : https://mdl.artvee.com/sftb/220638fg.jpg -->
+	</div>
     <form>
         <div class="form-group">
             <div class="form-group">
-                <label for="category">카테고리:</label>
+                <label for="category">작품 :</label>
                 <select class="form-control" id="category">
-                    <option th:value="daily">일상</option>
-                    <option th:value="date">데이트</option>
+                    <option th:value="daily">vicente palmaroli y gonzalez - Summer Days</option>
+                    <option th:value="date">Vincent Willem van Gogh - The Starry Night</option>
                 </select>
             </div>
-
-            <label for="title">Title</label>
-            <input type="text" class="form-control" placeholder="Enter title" id="title">
+			
+            <label for="title">입찰 금액</label>
+            <input type="number" class="form-control" placeholder="bidding price" id="title">
         </div>
 
         <div class="form-group">
-            <label for="content">Content</label>
-            <textarea class="form-control summernote" rows="5" id="content"></textarea>
+            <label for="content">User info</label>
+            <input type="text" class="form-control" rows="5" id="content" th:value="${user.getUsername()}" readonly>
         </div>
     </form>
-    <button id="btn-save" class="btn btn-primary">글쓰기</button>
+    <button id="btn-save" class="btn btn-primary">확인</button>
 <!-- 버튼을 밖으로 빼는건 json 요청을 하기 때문이다 -->
 </div>
 
 
-<!-- 썸머노트 사용 -->
-<script>
-    $('.summernote').summernote({
-        tabsize: 2,
-        height: 300,
 
-    //    반응형
-        width: "100%",
-    });
-</script>
 
 <script src="/js/board.js"></script>
 <footer th:replace="/layout/footer.html :: fragment-footer"></footer>
