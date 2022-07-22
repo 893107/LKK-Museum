@@ -143,12 +143,12 @@
 <div>
 	<div id="layer_bg2">
 		<div id="popup"  class="text-center">
-			<br><h2>잔액 충전하기</h2>
+			<br><br><h3>예치금 충전하기</h3>
 			<form id="auctionform" action="" method="post">
 				<div class="div1">
-					현재 잔액 : <input type="text" id="mymoney" placeholder="0" class="text-center" readonly><br>
-					<input type="text" placeholder="충전하실 금액을 입력하세요." class="text-center">&nbsp;&nbsp;<a class="btnghost" onclick="">충전하기</a><br>
-					<a class="btnghost" onclick="closemoney()">닫기</a>
+					현재 잔액 : <input type="text" id="budget" th:value="${user.getBudget()}" class="text-center" readonly><br>
+					<input type="text" placeholder="충전하실 금액을 입력하세요." class="text-center"><br>
+					<a class="btnghost" onclick="">충전하기</a>&emsp;<a class="btnghost" onclick="closemoney()">닫기</a>
 				</div>
 		</div>
 	</div>

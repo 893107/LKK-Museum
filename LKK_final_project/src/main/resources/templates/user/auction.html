@@ -160,7 +160,7 @@
 				<div class="div2">
 					<span style="font-size: 12px; color: red;">※ 경매 물품 최종 낙찰에 성공한 경우에만 입력하신 금액이 결제됩니다.</span><br>
 					<!-- 버튼 -->
-					<a class="btnghost">경매 참가하기</a>
+					<a class="btnghost">경매 참가하기</a>&emsp;<a class="btnghost" onclick="closela()">닫기</a>
 					<!-- 버튼 끝 -->
 				</div>
 			</form>
@@ -172,12 +172,12 @@
 <div>
 	<div id="layer_bg2">
 		<div id="popup"  class="text-center">
-			<br><h2>잔액 충전하기</h2>
+			<br><br><h3>예치금 충전하기</h3>
 			<form id="auctionform" action="" method="post">
 				<div class="div1">
 					현재 잔액 : <input type="text" id="budget" th:value="${user.getBudget()}" class="text-center" readonly><br>
-					<input type="text" placeholder="충전하실 금액을 입력하세요." class="text-center">&nbsp;&nbsp;<a class="btnghost" onclick="">충전하기</a><br>
-					<a class="btnghost" onclick="closemoney()">닫기</a>
+					<input type="text" placeholder="충전하실 금액을 입력하세요." class="text-center"><br>
+					<a class="btnghost" onclick="">충전하기</a>&emsp;<a class="btnghost" onclick="closemoney()">닫기</a>
 				</div>
 		</div>
 	</div>
