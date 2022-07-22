@@ -66,7 +66,7 @@
 			<li class="nav-item"><a class="nav-link" href="/">Gallery</a></li>
 			<li class="nav-item"><a class="nav-link" href="/auth/auction">Auction</a></li>
 			<li class="nav-item"><a class="nav-link" href="/auth/store">Store</a></li>
-			<li class="nav-item"><a class="nav-link" href="/user/updateForm">회원정보</a></li>
+			<li class="nav-item"><a class="nav-link" href="/user/updateForm">My Page</a></li>
 			<li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
 		</ul>
 	</div>
@@ -180,8 +180,7 @@
 				<div class="div1">
 					현재 잔액 : <input type="text" id="budget" th:value="${user.getBudget()}" class="text-center" readonly><br>
 					<input type="text" placeholder="충전하실 금액을 입력하세요." class="text-center"><br>
-					<button class="btnghost" id="btn-insert">충전하기</button><br>
-					<a class="btnghost" onclick="closemoney()">닫기</a>
+					<button class="btnghost" id="btn-insert">충전하기</button>&emsp;<a class="btnghost" onclick="closemoney()">닫기</a>
 				</div>
 			</form>
 		</div>
