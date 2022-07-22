@@ -82,37 +82,37 @@ function emailcheck(){
 };
 
 function datainfo(){
-    console.log('함수 실행');
-    let form = $("#contactform");
-    let email = $('input#email').val();
-    
-    if(document.getElementById("check1").value == 'Y'){
-        if(document.getElementById("check2").value == 'Y'){
-            if(document.getElementById("check3").value == 'Y'){
-                document.getElementById('printmsg4').innerHTML = '';
-                $.ajax({
-                    url:'/auth/mailsend', 
-                    type:'GET', 
-                    data: {email: email},
-                    success:function(){ 
-                    	alter("succcess");
-                    },
-                    error:function(){
-                        alter("Error");
-                    }
-                });                     
-                form.submit();
-            } else {
-                document.getElementById('printmsg4').innerHTML = '&emsp;이메일 중복 체크를 실행해주세요.';
-            }
-        } else {
-            document.getElementById('printmsg4').innerHTML = '&emsp;비밀번호 확인을 실행해주세요.';
-        }
-    } else {
-        document.getElementById('printmsg4').innerHTML = '&emsp;아이디 중복 확인을 실행해주세요.';
-    }
-};
-
+	 console.log('함수 실행');
+	    let form = $("#contactform");
+	    let email = $('input#email').val();
+	    
+	    if(document.getElementById("check1").value == 'Y'){
+	        if(document.getElementById("check2").value == 'Y'){
+	            if(document.getElementById("check3").value == 'Y'){
+	                document.getElementById('printmsg4').innerHTML = '';
+	                $.ajax({
+	                    url:'/auth/mailsend', 
+	                    type:'GET', 
+	                    data: {email: email},
+	                    success:function(){ 
+	                    },
+	                    error:function(){
+	                    }
+	                });
+	                alert("회원가입이 완료되었습니다.");
+	                form.submit();
+	                location.href = "/";
+	            } else {
+	                document.getElementById('printmsg4').innerHTML = '&emsp;이메일 중복 체크를 실행해주세요.';
+	            }
+	        } else {
+	            document.getElementById('printmsg4').innerHTML = '&emsp;비밀번호 확인을 실행해주세요.';
+	        }
+	    } else {
+	        document.getElementById('printmsg4').innerHTML = '&emsp;아이디 중복 확인을 실행해주세요.';
+	    }
+	   
+	};
 //회원 정보 수정
 function update(){
     let Display= document.getElementById("email");
@@ -129,6 +129,7 @@ function update(){
    
         document.getElementById('email').readOnly = false
         document.getElementById('phone').readOnly = false 
+        document.getElementById('budget').readOnly = false
 
     } else if(Display.readOnly == false) {
         document.getElementById('password').type = 'hidden'
@@ -143,6 +144,7 @@ function update(){
    
         document.getElementById('email').readOnly = true
         document.getElementById('phone').readOnly = true
+        document.getElementById('budget').readOnly = true
     }
 }
 
@@ -173,7 +175,8 @@ function sendcolumn(){
         },
         error:function(){
         }
-    });                     
+    });   
+    alert("전체컬럼 전송 완료되었습니다.");
 };
 
 

@@ -22,7 +22,8 @@ let index = {
             password: $("#password").val(),
             email: $("#email").val(),
             phone: $("#phone").val(),
-            name: $("#name").val()
+            name: $("#name").val(),
+            budget: $("#budget").val()
         }
         
     	if(document.getElementById("check1").value == 'Y'){
@@ -65,7 +66,8 @@ let index = {
 	                password: $("#password").val(),
 	                email: $("#email").val(),
 	                phone: $("#phone").val(),
-	                name: $("#name").val()
+	                name: $("#name").val(),
+	                budget: $("#budget").val()
 	            }
 	            
 	            if(document.getElementById("check2").value == 'Y'){

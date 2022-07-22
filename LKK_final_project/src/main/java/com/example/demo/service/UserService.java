@@ -78,10 +78,14 @@ public class UserService {
 			String encPassword = encode.encode(rawPassword);
 			persistance.setPassword(encPassword);
 			persistance.setEmail(user.getEmail());
+			persistance.setPhone(user.getPhone());
+			persistance.setBudget(user.getBudget());
 		}
 
+		persistance.setPhone(user.getPhone());
 		persistance.setEmail(user.getEmail());
-
+		persistance.setBudget(user.getBudget());
+		
 	}
 
 }
