@@ -196,16 +196,162 @@ function showlayer2(){
     $("body").css("overflow","hidden");
 }
 
-$(document).mouseup(function (e){
-    var LayerPopup = $("#layer_bg");
-    if(LayerPopup.has(e.target).length === 0){
-        document.getElementById('layer_bg').style = 'display:none';
-        $("body").css("overflow","scroll");
-    }
-});
+function showLP1(){
+    document.getElementById('LP1').style = 'display:block';
+    $("#LP1").css({
+        "top": (($(window).height()-$("#LP1").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP1").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP2(){
+    document.getElementById('LP2').style = 'display:block';
+    $("#LP2").css({
+        "top": (($(window).height()-$("#LP2").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP2").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP3(){
+    document.getElementById('LP3').style = 'display:block';
+    $("#LP3").css({
+        "top": (($(window).height()-$("#LP3").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP3").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP4(){
+    document.getElementById('LP4').style = 'display:block';
+    $("#LP4").css({
+        "top": (($(window).height()-$("#LP4").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP4").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP5(){
+    document.getElementById('LP5').style = 'display:block';
+    $("#LP5").css({
+        "top": (($(window).height()-$("#LP5").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP5").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP6(){
+    document.getElementById('LP6').style = 'display:block';
+    $("#LP6").css({
+        "top": (($(window).height()-$("#LP6").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP6").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP7(){
+    document.getElementById('LP7').style = 'display:block';
+    $("#LP7").css({
+        "top": (($(window).height()-$("#LP7").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP7").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP8(){
+    document.getElementById('LP8').style = 'display:block';
+    $("#LP8").css({
+        "top": (($(window).height()-$("#LP8").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP8").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP9(){
+    document.getElementById('LP9').style = 'display:block';
+    $("#LP9").css({
+        "top": (($(window).height()-$("#LP9").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP9").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP10(){
+    document.getElementById('LP10').style = 'display:block';
+    $("#LP10").css({
+        "top": (($(window).height()-$("#LP10").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP10").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP11(){
+    document.getElementById('LP11').style = 'display:block';
+    $("#LP11").css({
+        "top": (($(window).height()-$("#LP11").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP11").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+function showLP12(){
+    document.getElementById('LP12').style = 'display:block';
+    $("#LP12").css({
+        "top": (($(window).height()-$("#LP12").outerHeight())/2+$(window).scrollTop())+"px",
+        "left": (($(window).width()-$("#LP12").outerWidth())/2+$(window).scrollLeft())+"px"
+    });
+    $("body").css("overflow","hidden");
+}
+
+// $(document).mouseup(function (e){
+//     var LayerPopup = $("#layer_bg");
+//     if(LayerPopup.has(e.target).length === 0){
+//         document.getElementById('layer_bg').style = 'display:none';
+//         $("body").css("overflow","scroll");
+//     }
+// });
 
 function closemoney(){
     document.getElementById('layer_bg2').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+
+function closeLP1(){
+    document.getElementById('LP1').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP2(){
+    document.getElementById('LP2').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP3(){
+    document.getElementById('LP3').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP4(){
+    document.getElementById('LP4').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP5(){
+    document.getElementById('LP5').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP6(){
+    document.getElementById('LP6').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP7(){
+    document.getElementById('LP7').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP8(){
+    document.getElementById('LP8').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP9(){
+    document.getElementById('LP9').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP10(){
+    document.getElementById('LP10').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP11(){
+    document.getElementById('LP11').style = 'display:none';
+    $("body").css("overflow","scroll");
+}
+function closeLP12(){
+    document.getElementById('LP12').style = 'display:none';
     $("body").css("overflow","scroll");
 }
 
